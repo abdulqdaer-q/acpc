@@ -16,6 +16,40 @@ export interface ErrorResponse {
   error: string;
 }
 
+export interface ContactMessageData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+export interface VolunteerApplicationData {
+  name: string;
+  email: string;
+  phone: string;
+  team: 'media' | 'logistics' | 'ops' | 'volunteers';
+  experience: string;
+  availability: string;
+  motivation: string;
+}
+
+export interface TeamMemberData {
+  name: string;
+  email: string;
+  studentId: string;
+  year: number;
+  major: string;
+}
+
+export interface TeamData {
+  name: string;
+  university: string;
+  coachName: string;
+  coachEmail: string;
+  coachPhone: string;
+  members: TeamMemberData[];
+}
+
 class APIClient {
   private getToken(): string | null {
     if (typeof window !== 'undefined') {
@@ -112,6 +146,59 @@ class APIClient {
 
   isAuthenticated(): boolean {
     return this.getToken() !== null;
+  }
+
+  // Contact Methods
+  async submitContactMessage(data: ContactMessageData): Promise<{ message: string; id: string }> {
+    return this.request('/contact', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+  }
+
+  // Volunteer Methods
+  async submitVolunteerApplication(data: VolunteerApplicationData): Promise<any> {
+    return this.request('/volunteers', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+  }
+
+  async getMyVolunteerApplications(): Promise<any> {
+    return this.request('/volunteers/my-applications');
+  }
+
+  // Team Methods
+  async createTeam(data: TeamData): Promise<any> {
+    return this.request('/teams', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+  }
+
+  async getMyTeams(): Promise<any> {
+    return this.request('/teams/my-teams');
+  }
+
+  async getTeamById(id: string): Promise<any> {
+    return this.request(`/teams/${id}`);
+  }
+
+  async getAllTeams(includeMembers: boolean = false): Promise<any> {
+    return this.request(`/teams?includeMembers=${includeMembers}`);
+  }
+
+  async addTeamMember(teamId: string, member: TeamMemberData): Promise<any> {
+    return this.request(`/teams/${teamId}/members`, {
+      method: 'POST',
+      body: JSON.stringify(member),
+    });
+  }
+
+  async removeTeamMember(teamId: string, memberId: string): Promise<any> {
+    return this.request(`/teams/${teamId}/members/${memberId}`, {
+      method: 'DELETE',
+    });
   }
 }
 
