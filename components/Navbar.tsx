@@ -2,45 +2,50 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const t = useTranslations();
+  const locale = useLocale();
 
   return (
     <nav className="bg-white shadow-lg fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <span className="text-2xl font-bold text-primary-600">ACPC</span>
+            <Link href={`/${locale}`} className="flex items-center">
+              <span className="text-2xl font-bold text-primary-600">{t('common.acpc')}</span>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="/#about" className="text-gray-700 hover:text-primary-600 transition">
-              About
+          <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
+            <Link href={`/${locale}/#about`} className="text-gray-700 hover:text-primary-600 transition">
+              {t('nav.about')}
             </Link>
-            <Link href="/#competition" className="text-gray-700 hover:text-primary-600 transition">
-              Competition
+            <Link href={`/${locale}/#competition`} className="text-gray-700 hover:text-primary-600 transition">
+              {t('nav.competition')}
             </Link>
-            <Link href="/#schedule" className="text-gray-700 hover:text-primary-600 transition">
-              Schedule
+            <Link href={`/${locale}/#schedule`} className="text-gray-700 hover:text-primary-600 transition">
+              {t('nav.schedule')}
             </Link>
-            <Link href="/#contact" className="text-gray-700 hover:text-primary-600 transition">
-              Contact
+            <Link href={`/${locale}/#contact`} className="text-gray-700 hover:text-primary-600 transition">
+              {t('nav.contact')}
             </Link>
+            <LanguageSwitcher />
             <Link
-              href="/auth/login"
+              href={`/${locale}/auth/login`}
               className="text-primary-600 hover:text-primary-700 font-medium transition"
             >
-              Login
+              {t('nav.login')}
             </Link>
             <Link
-              href="/auth/register"
+              href={`/${locale}/auth/register`}
               className="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition"
             >
-              Register
+              {t('nav.register')}
             </Link>
           </div>
 
@@ -75,40 +80,43 @@ export default function Navbar() {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white">
             <Link
-              href="/#about"
+              href={`/${locale}/#about`}
               className="block px-3 py-2 text-gray-700 hover:text-primary-600 transition"
             >
-              About
+              {t('nav.about')}
             </Link>
             <Link
-              href="/#competition"
+              href={`/${locale}/#competition`}
               className="block px-3 py-2 text-gray-700 hover:text-primary-600 transition"
             >
-              Competition
+              {t('nav.competition')}
             </Link>
             <Link
-              href="/#schedule"
+              href={`/${locale}/#schedule`}
               className="block px-3 py-2 text-gray-700 hover:text-primary-600 transition"
             >
-              Schedule
+              {t('nav.schedule')}
             </Link>
             <Link
-              href="/#contact"
+              href={`/${locale}/#contact`}
               className="block px-3 py-2 text-gray-700 hover:text-primary-600 transition"
             >
-              Contact
+              {t('nav.contact')}
             </Link>
+            <div className="px-3 py-2">
+              <LanguageSwitcher />
+            </div>
             <Link
-              href="/auth/login"
+              href={`/${locale}/auth/login`}
               className="block px-3 py-2 text-primary-600 hover:text-primary-700 font-medium transition"
             >
-              Login
+              {t('nav.login')}
             </Link>
             <Link
-              href="/auth/register"
+              href={`/${locale}/auth/register`}
               className="block px-3 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition text-center"
             >
-              Register
+              {t('nav.register')}
             </Link>
           </div>
         </div>

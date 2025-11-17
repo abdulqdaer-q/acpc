@@ -1,0 +1,197 @@
+{
+  "common": {
+    "acpc": "ACPC",
+    "acpcFull": "مسابقة حلب للبرمجة التنافسية",
+    "loading": "جارٍ التحميل...",
+    "backToHome": "العودة إلى الصفحة الرئيسية"
+  },
+  "nav": {
+    "about": "عن المسابقة",
+    "competition": "المنافسة",
+    "schedule": "الجدول الزمني",
+    "contact": "اتصل بنا",
+    "login": "تسجيل الدخول",
+    "register": "التسجيل",
+    "logout": "تسجيل الخروج"
+  },
+  "hero": {
+    "title": "مسابقة حلب",
+    "titleHighlight": "للبرمجة التنافسية",
+    "subtitle": "انضم إلى مسابقة البرمجة التنافسية الرائدة وتحدى نفسك جنبًا إلى جنب مع ألمع العقول في حل المشكلات والتفكير الخوارزمي.",
+    "registerNow": "سجل الآن",
+    "learnMore": "اعرف المزيد"
+  },
+  "about": {
+    "title": "عن ACPC",
+    "subtitle": "تجمع مسابقة حلب للبرمجة التنافسية المبرمجين الموهوبين لحل المسائل الخوارزمية الصعبة.",
+    "teamBased": {
+      "title": "قائمة على الفريق",
+      "description": "تنافس في فرق تصل إلى 3 أعضاء، مما يعزز مهارات التعاون والتواصل."
+    },
+    "challenging": {
+      "title": "مسائل صعبة",
+      "description": "تصدى لمجموعة متنوعة من التحديات الخوارزمية المصممة لاختبار قدراتك في حل المشكلات."
+    },
+    "prizes": {
+      "title": "جوائز وتقدير",
+      "description": "اربح الجوائز واحصل على التقدير لمهاراتك في البرمجة بين أقرانك والمجتمع الأوسع."
+    }
+  },
+  "competition": {
+    "title": "نظام المنافسة",
+    "subtitle": "فهم كيفية عمل المسابقة وما يمكن توقعه.",
+    "rules": {
+      "title": "قواعد المسابقة",
+      "teams": "فرق من 1-3 أعضاء",
+      "duration": "مدة المسابقة 5 ساعات",
+      "problems": "8-12 مسألة خوارزمية",
+      "computer": "جهاز كمبيوتر واحد لكل فريق",
+      "languages": "لغات البرمجة القياسية المدعومة (C++، Java، Python)"
+    },
+    "eligibility": {
+      "title": "من يمكنه المشاركة؟",
+      "university": "طلاب الجامعات (البكالوريوس والدراسات العليا)",
+      "highSchool": "طلاب المدارس الثانوية ذوي الخبرة في البرمجة",
+      "passionate": "المبرمجون المتحمسون ومحللو المشكلات",
+      "allLevels": "مفتوحة لجميع المستويات",
+      "noAge": "بدون قيود على العمر"
+    }
+  },
+  "schedule": {
+    "title": "جدول الفعاليات",
+    "subtitle": "خطط ليومك مع جدولنا الزمني التفصيلي للمسابقة.",
+    "events": {
+      "registration": {
+        "time": "8:00 صباحًا",
+        "title": "التسجيل وتسجيل الحضور",
+        "description": "وصول الفرق وإكمال التسجيل"
+      },
+      "opening": {
+        "time": "9:00 صباحًا",
+        "title": "حفل الافتتاح",
+        "description": "كلمة ترحيبية وقواعد المسابقة"
+      },
+      "start": {
+        "time": "10:00 صباحًا",
+        "title": "بداية المسابقة",
+        "description": "بدء تحدي البرمجة لمدة 5 ساعات"
+      },
+      "lunch": {
+        "time": "12:00 ظهرًا",
+        "title": "استراحة الغداء",
+        "description": "مقدمة لجميع المشاركين"
+      },
+      "end": {
+        "time": "3:00 عصرًا",
+        "title": "نهاية المسابقة",
+        "description": "التسليمات النهائية وتجميد النظام"
+      },
+      "awards": {
+        "time": "4:00 عصرًا",
+        "title": "حفل توزيع الجوائز",
+        "description": "الإعلان عن الفائزين وتوزيع الجوائز"
+      }
+    }
+  },
+  "contact": {
+    "title": "تواصل معنا",
+    "subtitle": "هل لديك أسئلة؟ نحن هنا للمساعدة!",
+    "information": "معلومات الاتصال",
+    "email": "البريد الإلكتروني",
+    "emailAddress": "contact@acpc.org",
+    "location": "الموقع",
+    "locationAddress": "حلب، سوريا",
+    "followUs": "تابعنا",
+    "twitter": "تويتر",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+  "footer": {
+    "copyright": "جميع الحقوق محفوظة."
+  },
+  "auth": {
+    "login": {
+      "title": "تسجيل الدخول إلى حسابك",
+      "or": "أو",
+      "createAccount": "إنشاء حساب جديد",
+      "emailLabel": "عنوان البريد الإلكتروني",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "كلمة المرور",
+      "passwordPlaceholder": "••••••••",
+      "rememberMe": "تذكرني",
+      "forgotPassword": "نسيت كلمة المرور؟",
+      "signIn": "تسجيل الدخول",
+      "signingIn": "جارٍ تسجيل الدخول...",
+      "orContinueWith": "أو تابع بواسطة"
+    },
+    "register": {
+      "title": "إنشاء حسابك",
+      "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
+      "signIn": "تسجيل الدخول",
+      "fullNameLabel": "الاسم الكامل",
+      "fullNamePlaceholder": "أحمد محمد",
+      "emailLabel": "عنوان البريد الإلكتروني",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "كلمة المرور",
+      "passwordPlaceholder": "••••••••",
+      "confirmPasswordLabel": "تأكيد كلمة المرور",
+      "confirmPasswordPlaceholder": "••••••••",
+      "agreeToTerms": "أوافق على",
+      "termsOfService": "شروط الخدمة",
+      "and": "و",
+      "privacyPolicy": "سياسة الخصوصية",
+      "createAccount": "إنشاء حساب",
+      "creatingAccount": "جارٍ إنشاء الحساب...",
+      "orContinueWith": "أو تابع بواسطة",
+      "registrationSuccess": "تم التسجيل بنجاح! يرجى التحقق من بريدك الإلكتروني للتحقق من حسابك."
+    },
+    "errors": {
+      "loginError": "حدث خطأ أثناء تسجيل الدخول",
+      "registerError": "حدث خطأ أثناء التسجيل",
+      "passwordMismatch": "كلمات المرور غير متطابقة",
+      "passwordTooShort": "يجب أن تكون كلمة المرور 6 أحرف على الأقل"
+    }
+  },
+  "dashboard": {
+    "welcome": "مرحبًا بك في لوحة التحكم!",
+    "subtitle": "إدارة تسجيلاتك في المسابقات وعرض تقدمك.",
+    "myCompetitions": {
+      "title": "مسابقاتي",
+      "none": "لم تسجل في أي مسابقات بعد."
+    },
+    "teamMembers": {
+      "title": "أعضاء الفريق",
+      "canAdd": "يمكنك إضافة ما يصل إلى عضوين آخرين."
+    },
+    "upcomingEvents": {
+      "title": "الفعاليات القادمة",
+      "acpc2025": "ACPC 2025 - التسجيل مفتوح"
+    },
+    "quickActions": {
+      "title": "إجراءات سريعة",
+      "registerCompetition": {
+        "title": "التسجيل في المسابقة",
+        "description": "سجل في فعالية ACPC القادمة"
+      },
+      "createJoinTeam": {
+        "title": "إنشاء/الانضمام لفريق",
+        "description": "شكل فريقًا أو انضم إلى فريق موجود"
+      },
+      "viewSchedule": {
+        "title": "عرض الجدول الزمني",
+        "description": "تحقق من جدول المسابقة والجدول الزمني"
+      },
+      "practiceProblems": {
+        "title": "مسائل تدريبية",
+        "description": "استعد بمسائل المسابقات السابقة"
+      }
+    },
+    "profile": {
+      "title": "معلومات الملف الشخصي",
+      "fullName": "الاسم الكامل",
+      "email": "البريد الإلكتروني",
+      "accountCreated": "تاريخ إنشاء الحساب",
+      "notProvided": "غير مقدم"
+    }
+  }
+}

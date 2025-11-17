@@ -2,11 +2,16 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
 
 export default function Dashboard() {
   const router = useRouter();
+  const locale = useLocale();
+  const t = useTranslations('dashboard');
+  const tNav = useTranslations('nav');
+  const tCommon = useTranslations('common');
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
@@ -15,7 +20,7 @@ export default function Dashboard() {
       const { data: { user } } = await supabase.auth.getUser();
 
       if (!user) {
-        router.push('/auth/login');
+        router.push(`/${locale}/auth/login`);
       } else {
         setUser(user);
       }
@@ -23,17 +28,17 @@ export default function Dashboard() {
     };
 
     checkUser();
-  }, [router]);
+  }, [router, locale]);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
-    router.push('/');
+    router.push(`/${locale}`);
   };
 
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-xl">Loading...</div>
+        <div className="text-xl">{tCommon('loading')}</div>
       </div>
     );
   }
@@ -45,8 +50,8 @@ export default function Dashboard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
-              <Link href="/" className="text-2xl font-bold text-primary-600">
-                ACPC
+              <Link href={`/${locale}`} className="text-2xl font-bold text-primary-600">
+                {tCommon('acpc')}
               </Link>
             </div>
             <div className="flex items-center space-x-4">
@@ -57,7 +62,7 @@ export default function Dashboard() {
                 onClick={handleLogout}
                 className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition"
               >
-                Logout
+                {tNav('logout')}
               </button>
             </div>
           </div>
@@ -68,10 +73,10 @@ export default function Dashboard() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">
-            Welcome to your Dashboard!
+            {t('welcome')}
           </h1>
           <p className="text-gray-600 mt-2">
-            Manage your competition registrations and view your progress.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -96,13 +101,13 @@ export default function Dashboard() {
               </div>
               <div className="ml-4">
                 <h3 className="text-lg font-semibold text-gray-900">
-                  My Competitions
+                  {t('myCompetitions.title')}
                 </h3>
                 <p className="text-2xl font-bold text-primary-600">0</p>
               </div>
             </div>
             <p className="text-gray-600 text-sm">
-              You haven't registered for any competitions yet.
+              {t('myCompetitions.none')}
             </p>
           </div>
 
@@ -126,13 +131,13 @@ export default function Dashboard() {
               </div>
               <div className="ml-4">
                 <h3 className="text-lg font-semibold text-gray-900">
-                  Team Members
+                  {t('teamMembers.title')}
                 </h3>
                 <p className="text-2xl font-bold text-green-600">1</p>
               </div>
             </div>
             <p className="text-gray-600 text-sm">
-              You can add up to 2 more team members.
+              {t('teamMembers.canAdd')}
             </p>
           </div>
 
@@ -156,61 +161,61 @@ export default function Dashboard() {
               </div>
               <div className="ml-4">
                 <h3 className="text-lg font-semibold text-gray-900">
-                  Upcoming Events
+                  {t('upcomingEvents.title')}
                 </h3>
                 <p className="text-2xl font-bold text-orange-600">1</p>
               </div>
             </div>
             <p className="text-gray-600 text-sm">
-              ACPC 2025 - Registration Open
+              {t('upcomingEvents.acpc2025')}
             </p>
           </div>
         </div>
 
         {/* Quick Actions */}
         <div className="mt-8 bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Quick Actions</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('quickActions.title')}</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <button className="bg-primary-600 text-white p-4 rounded-lg hover:bg-primary-700 transition text-left">
-              <h3 className="font-semibold text-lg mb-2">Register for Competition</h3>
-              <p className="text-sm opacity-90">Sign up for the upcoming ACPC event</p>
+              <h3 className="font-semibold text-lg mb-2">{t('quickActions.registerCompetition.title')}</h3>
+              <p className="text-sm opacity-90">{t('quickActions.registerCompetition.description')}</p>
             </button>
             <button className="bg-gray-100 text-gray-700 p-4 rounded-lg hover:bg-gray-200 transition text-left">
-              <h3 className="font-semibold text-lg mb-2">Create/Join Team</h3>
-              <p className="text-sm">Form a team or join an existing one</p>
+              <h3 className="font-semibold text-lg mb-2">{t('quickActions.createJoinTeam.title')}</h3>
+              <p className="text-sm">{t('quickActions.createJoinTeam.description')}</p>
             </button>
             <button className="bg-gray-100 text-gray-700 p-4 rounded-lg hover:bg-gray-200 transition text-left">
-              <h3 className="font-semibold text-lg mb-2">View Schedule</h3>
-              <p className="text-sm">Check the competition schedule and timeline</p>
+              <h3 className="font-semibold text-lg mb-2">{t('quickActions.viewSchedule.title')}</h3>
+              <p className="text-sm">{t('quickActions.viewSchedule.description')}</p>
             </button>
             <button className="bg-gray-100 text-gray-700 p-4 rounded-lg hover:bg-gray-200 transition text-left">
-              <h3 className="font-semibold text-lg mb-2">Practice Problems</h3>
-              <p className="text-sm">Prepare with past competition problems</p>
+              <h3 className="font-semibold text-lg mb-2">{t('quickActions.practiceProblems.title')}</h3>
+              <p className="text-sm">{t('quickActions.practiceProblems.description')}</p>
             </button>
           </div>
         </div>
 
         {/* Profile Section */}
         <div className="mt-8 bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Profile Information</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('profile.title')}</h2>
           <div className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Full Name
+                {t('profile.fullName')}
               </label>
               <p className="text-gray-900">
-                {user?.user_metadata?.full_name || 'Not provided'}
+                {user?.user_metadata?.full_name || t('profile.notProvided')}
               </p>
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Email
+                {t('profile.email')}
               </label>
               <p className="text-gray-900">{user?.email}</p>
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Account Created
+                {t('profile.accountCreated')}
               </label>
               <p className="text-gray-900">
                 {new Date(user?.created_at).toLocaleDateString()}

@@ -1,0 +1,197 @@
+{
+  "common": {
+    "acpc": "ACPC",
+    "acpcFull": "Aleppo Competitive Programming Competition",
+    "loading": "Loading...",
+    "backToHome": "Back to home"
+  },
+  "nav": {
+    "about": "About",
+    "competition": "Competition",
+    "schedule": "Schedule",
+    "contact": "Contact",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout"
+  },
+  "hero": {
+    "title": "Aleppo Competitive",
+    "titleHighlight": "Programming Competition",
+    "subtitle": "Join the premier competitive programming competition and challenge yourself alongside the brightest minds in problem-solving and algorithmic thinking.",
+    "registerNow": "Register Now",
+    "learnMore": "Learn More"
+  },
+  "about": {
+    "title": "About ACPC",
+    "subtitle": "The Aleppo Competitive Programming Competition brings together talented programmers to solve challenging algorithmic problems.",
+    "teamBased": {
+      "title": "Team-Based",
+      "description": "Compete in teams of up to 3 members, fostering collaboration and communication skills."
+    },
+    "challenging": {
+      "title": "Challenging Problems",
+      "description": "Tackle a diverse set of algorithmic challenges designed to test your problem-solving abilities."
+    },
+    "prizes": {
+      "title": "Prizes & Recognition",
+      "description": "Win prizes and gain recognition for your programming skills among your peers and the wider community."
+    }
+  },
+  "competition": {
+    "title": "Competition Format",
+    "subtitle": "Understanding how the competition works and what to expect.",
+    "rules": {
+      "title": "Contest Rules",
+      "teams": "Teams of 1-3 members",
+      "duration": "5-hour competition duration",
+      "problems": "8-12 algorithmic problems",
+      "computer": "One computer per team",
+      "languages": "Standard programming languages supported (C++, Java, Python)"
+    },
+    "eligibility": {
+      "title": "Who Can Participate?",
+      "university": "University students (undergraduate and graduate)",
+      "highSchool": "High school students with programming experience",
+      "passionate": "Passionate programmers and problem solvers",
+      "allLevels": "Open to all skill levels",
+      "noAge": "No age restrictions"
+    }
+  },
+  "schedule": {
+    "title": "Event Schedule",
+    "subtitle": "Plan your day with our detailed competition timeline.",
+    "events": {
+      "registration": {
+        "time": "8:00 AM",
+        "title": "Registration & Check-in",
+        "description": "Teams arrive and complete registration"
+      },
+      "opening": {
+        "time": "9:00 AM",
+        "title": "Opening Ceremony",
+        "description": "Welcome address and competition rules"
+      },
+      "start": {
+        "time": "10:00 AM",
+        "title": "Competition Begins",
+        "description": "5-hour programming challenge starts"
+      },
+      "lunch": {
+        "time": "12:00 PM",
+        "title": "Lunch Break",
+        "description": "Provided for all participants"
+      },
+      "end": {
+        "time": "3:00 PM",
+        "title": "Competition Ends",
+        "description": "Final submissions and system freeze"
+      },
+      "awards": {
+        "time": "4:00 PM",
+        "title": "Awards Ceremony",
+        "description": "Winners announced and prizes awarded"
+      }
+    }
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Have questions? We're here to help!",
+    "information": "Contact Information",
+    "email": "Email",
+    "emailAddress": "contact@acpc.org",
+    "location": "Location",
+    "locationAddress": "Aleppo, Syria",
+    "followUs": "Follow Us",
+    "twitter": "Twitter",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+  "footer": {
+    "copyright": "All rights reserved."
+  },
+  "auth": {
+    "login": {
+      "title": "Sign in to your account",
+      "or": "Or",
+      "createAccount": "create a new account",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "••••••••",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot password?",
+      "signIn": "Sign in",
+      "signingIn": "Signing in...",
+      "orContinueWith": "Or continue with"
+    },
+    "register": {
+      "title": "Create your account",
+      "alreadyHaveAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "fullNameLabel": "Full Name",
+      "fullNamePlaceholder": "John Doe",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "••••••••",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordPlaceholder": "••••••••",
+      "agreeToTerms": "I agree to the",
+      "termsOfService": "Terms of Service",
+      "and": "and",
+      "privacyPolicy": "Privacy Policy",
+      "createAccount": "Create account",
+      "creatingAccount": "Creating account...",
+      "orContinueWith": "Or continue with",
+      "registrationSuccess": "Registration successful! Please check your email to verify your account."
+    },
+    "errors": {
+      "loginError": "An error occurred during login",
+      "registerError": "An error occurred during registration",
+      "passwordMismatch": "Passwords do not match",
+      "passwordTooShort": "Password must be at least 6 characters"
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome to your Dashboard!",
+    "subtitle": "Manage your competition registrations and view your progress.",
+    "myCompetitions": {
+      "title": "My Competitions",
+      "none": "You haven't registered for any competitions yet."
+    },
+    "teamMembers": {
+      "title": "Team Members",
+      "canAdd": "You can add up to 2 more team members."
+    },
+    "upcomingEvents": {
+      "title": "Upcoming Events",
+      "acpc2025": "ACPC 2025 - Registration Open"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "registerCompetition": {
+        "title": "Register for Competition",
+        "description": "Sign up for the upcoming ACPC event"
+      },
+      "createJoinTeam": {
+        "title": "Create/Join Team",
+        "description": "Form a team or join an existing one"
+      },
+      "viewSchedule": {
+        "title": "View Schedule",
+        "description": "Check the competition schedule and timeline"
+      },
+      "practiceProblems": {
+        "title": "Practice Problems",
+        "description": "Prepare with past competition problems"
+      }
+    },
+    "profile": {
+      "title": "Profile Information",
+      "fullName": "Full Name",
+      "email": "Email",
+      "accountCreated": "Account Created",
+      "notProvided": "Not provided"
+    }
+  }
+}
