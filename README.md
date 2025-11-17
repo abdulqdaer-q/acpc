@@ -4,18 +4,51 @@ A modern, responsive website for the Aleppo Competitive Programming Competition,
 
 ## Features
 
+### Core Features
 - **Modern Landing Page**: Beautiful, responsive design with sections for About, Competition Format, Schedule, and Contact
 - **Bilingual Support**: Full internationalization (i18n) with English and Arabic support using next-intl
-- **User Authentication**: Complete authentication system with JWT including:
-  - User registration with full name support
-  - Secure login with bcrypt password hashing
-  - JWT token-based authentication
-  - Protected dashboard routes
-- **User Dashboard**: Personalized dashboard for registered users
-- **Custom Backend**: Express.js REST API with SQLite database
 - **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
 - **TypeScript**: Fully typed for better development experience
 - **Tailwind CSS**: Modern, utility-first CSS framework
+- **SEO Optimized**: Dynamic metadata, sitemaps, and robots.txt
+
+### Authentication System
+- User registration with full name support
+- Secure login with bcrypt password hashing
+- JWT token-based authentication
+- Protected dashboard routes
+- Session management with localStorage
+
+### Contact & Communication
+- **Contact Form**: Fully functional contact form with backend integration
+- Message storage and status tracking
+- Form validation and error handling
+- Admin dashboard support for message management
+
+### Volunteer Management
+- **Volunteer Applications**: Complete application system for 4 teams:
+  - Media Team
+  - Logistics Team
+  - Operations Team
+  - General Volunteers
+- Application tracking and status management
+- User application history (when authenticated)
+- Admin approval workflow
+
+### Team Registration
+- **Competition Team Registration**: Full team management system
+  - Team creation (1-3 members)
+  - Coach information management
+  - Team member profiles with student details
+  - Team status tracking (pending/approved/rejected)
+- Member addition/removal
+- Team dashboard for registered users
+
+### Custom Backend
+- Express.js REST API with SQLite database
+- Comprehensive API endpoints for all features
+- Database schema with proper relationships
+- Admin-ready endpoints for content management
 
 ## Tech Stack
 
@@ -201,15 +234,51 @@ For production, consider migrating from SQLite to:
 
 Update `backend/src/db.ts` accordingly.
 
+## API Endpoints
+
+### Authentication
+- `POST /api/auth/register` - User registration
+- `POST /api/auth/login` - User login
+- `GET /api/auth/me` - Get current user
+- `POST /api/auth/logout` - User logout
+
+### Contact
+- `POST /api/contact` - Submit contact message (public)
+- `GET /api/contact` - Get all messages (admin)
+- `PATCH /api/contact/:id/status` - Update message status (admin)
+
+### Volunteers
+- `POST /api/volunteers` - Submit volunteer application
+- `GET /api/volunteers/my-applications` - Get user's applications (authenticated)
+- `GET /api/volunteers` - Get all applications (admin)
+- `GET /api/volunteers?team=<team>` - Filter by team (admin)
+- `PATCH /api/volunteers/:id/status` - Update application status (admin)
+
+### Teams
+- `POST /api/teams` - Create team (authenticated)
+- `GET /api/teams/my-teams` - Get user's teams (authenticated)
+- `GET /api/teams/:id` - Get team details (authenticated)
+- `GET /api/teams` - Get all teams
+- `POST /api/teams/:teamId/members` - Add team member (team owner)
+- `DELETE /api/teams/:teamId/members/:memberId` - Remove member (team owner)
+- `PATCH /api/teams/:id/status` - Update team status (admin)
+
+### Health
+- `GET /api/health` - API health check
+
 ## Features to Add
 
-- [ ] Team management system
-- [ ] Competition registration flow
+- [x] Team management system
+- [x] Competition registration flow
+- [x] Contact form
+- [x] Volunteer application system
 - [ ] Admin dashboard
 - [ ] Email notifications
 - [ ] Practice problems section
 - [ ] Scoreboard and rankings
 - [ ] Past competitions archive
+- [ ] Team invitation system
+- [ ] Competition scheduling system
 
 ## Contributing
 
