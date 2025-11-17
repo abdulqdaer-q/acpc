@@ -1,6 +1,6 @@
 # ACPC - Aleppo Competitive Programming Competition
 
-A modern, responsive website for the Aleppo Competitive Programming Competition, built with Next.js 16, TypeScript, Tailwind CSS, and a custom Express backend.
+A modern, responsive website for the Aleppo Competitive Programming Competition, built with Next.js 16, TypeScript, Tailwind CSS, and Strapi headless CMS.
 
 ## Features
 
@@ -44,10 +44,12 @@ A modern, responsive website for the Aleppo Competitive Programming Competition,
 - Member addition/removal
 - Team dashboard for registered users
 
-### Custom Backend
-- Express.js REST API with SQLite database
-- Comprehensive API endpoints for all features
-- Database schema with proper relationships
+### Headless CMS Backend
+- Strapi v5.31.0 headless CMS
+- REST API with comprehensive endpoints
+- SQLite database (development) - configurable for PostgreSQL (production)
+- Content type management for teams, applications, and messages
+- Built-in admin panel for content management
 - Admin-ready endpoints for content management
 
 ## Tech Stack
@@ -59,11 +61,10 @@ A modern, responsive website for the Aleppo Competitive Programming Competition,
 - **Internationalization**: next-intl
 
 ### Backend
+- **CMS**: Strapi 5.31.0
 - **Runtime**: Node.js
-- **Framework**: Express.js
-- **Database**: SQLite (better-sqlite3)
-- **Authentication**: JWT (jsonwebtoken)
-- **Password Hashing**: bcryptjs
+- **Database**: SQLite (development) / PostgreSQL (production recommended)
+- **Authentication**: JWT via Strapi users-permissions plugin
 - **Language**: TypeScript
 
 ## Getting Started
@@ -100,24 +101,28 @@ cp .env.local.example .env.local
 
 Edit `.env.local`:
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:3001/api
+NEXT_PUBLIC_API_URL=http://localhost:3001
 ```
 
 **Backend** - The backend `.env` is already configured in `backend/.env`. For production, update:
-- `JWT_SECRET` - Use a strong random secret
-- `DATABASE_PATH` - Path to SQLite database file
-- `FRONTEND_URL` - Your frontend URL for CORS
+- `APP_KEYS` - Use strong random secrets (comma-separated)
+- `API_TOKEN_SALT` - Random salt for API tokens
+- `ADMIN_JWT_SECRET` - Secret for admin JWT
+- `TRANSFER_TOKEN_SALT` - Random salt for transfer tokens
+- `JWT_SECRET` - Secret for user JWT
+- Configure PostgreSQL database instead of SQLite
 
 ### Running the Development Servers
 
 You need to run both the frontend and backend:
 
-**Terminal 1 - Backend:**
+**Terminal 1 - Strapi Backend:**
 ```bash
 cd backend
-npm run dev
+npm run develop
 ```
-Backend runs on [http://localhost:3001](http://localhost:3001)
+Backend API runs on [http://localhost:3001](http://localhost:3001)
+Strapi Admin Panel is available at [http://localhost:3001/admin](http://localhost:3001/admin)
 
 **Terminal 2 - Frontend:**
 ```bash
@@ -126,6 +131,9 @@ npm run dev
 Frontend runs on [http://localhost:3000](http://localhost:3000)
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+**First Time Setup:**
+When you first run Strapi, visit [http://localhost:3001/admin](http://localhost:3001/admin) to create your admin account. This is required before the API can be used.
 
 ## Project Structure
 

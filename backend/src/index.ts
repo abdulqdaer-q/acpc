@@ -1,36 +1,51 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import authRoutes from './routes/auth';
-import contactRoutes from './routes/contact';
-import volunteerRoutes from './routes/volunteers';
-import teamRoutes from './routes/teams';
+export default {
+  /**
+   * An asynchronous register function that runs before
+   * your application is initialized.
+   *
+   * This gives you an opportunity to extend code.
+   */
+  register(/*{ strapi }*/) {},
 
-dotenv.config();
+  /**
+   * An asynchronous bootstrap function that runs before
+   * your application gets started.
+   *
+   * This gives you an opportunity to set up your data model,
+   * run jobs, or perform some special logic.
+   */
+  async bootstrap({ strapi }) {
+    // Set up permissions for public access
+    const publicPermissions = await strapi
+      .query('plugin::users-permissions.permission')
+      .findMany({
+        where: {
+          role: {
+            type: 'public',
+          },
+        },
+      });
 
-const app = express();
-const PORT = process.env.PORT || 3001;
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
+    // Allow public access to contact messages and volunteer applications (create only)
+    const publicActions = [
+      'api::contact-message.contact-message.create',
+      'api::volunteer-application.volunteer-application.create',
+      'api::team.team.find',
+      'api::team.team.findOne',
+    ];
 
-// Middleware
-app.use(cors({
-  origin: FRONTEND_URL,
-  credentials: true,
-}));
-app.use(express.json());
+    for (const action of publicActions) {
+      const [controller, actionName] = action.split('.').slice(-2);
+      const permission = publicPermissions.find(
+        (p) => p.action === action
+      );
 
-// Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/contact', contactRoutes);
-app.use('/api/volunteers', volunteerRoutes);
-app.use('/api/teams', teamRoutes);
-
-// Health check
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok' });
-});
-
-app.listen(PORT, () => {
-  console.log(`🚀 Backend server running on http://localhost:${PORT}`);
-  console.log(`📝 API available at http://localhost:${PORT}/api`);
-});
+      if (permission && !permission.enabled) {
+        await strapi.query('plugin::users-permissions.permission').update({
+          where: { id: permission.id },
+          data: { enabled: true },
+        });
+      }
+    }
+  },
+};
