@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
-import { supabase } from '@/lib/supabase';
+import { api, User } from '@/lib/api';
 
 export default function Dashboard() {
   const router = useRouter();
@@ -12,17 +12,17 @@ export default function Dashboard() {
   const t = useTranslations('dashboard');
   const tNav = useTranslations('nav');
   const tCommon = useTranslations('common');
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const checkUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
+      const currentUser = await api.getCurrentUser();
 
-      if (!user) {
+      if (!currentUser) {
         router.push(`/${locale}/auth/login`);
       } else {
-        setUser(user);
+        setUser(currentUser);
       }
       setLoading(false);
     };
@@ -31,7 +31,7 @@ export default function Dashboard() {
   }, [router, locale]);
 
   const handleLogout = async () => {
-    await supabase.auth.signOut();
+    await api.logout();
     router.push(`/${locale}`);
   };
 
@@ -56,7 +56,7 @@ export default function Dashboard() {
             </div>
             <div className="flex items-center space-x-4">
               <span className="text-gray-700">
-                {user?.user_metadata?.full_name || user?.email}
+                {user?.full_name || user?.email}
               </span>
               <button
                 onClick={handleLogout}
@@ -204,7 +204,7 @@ export default function Dashboard() {
                 {t('profile.fullName')}
               </label>
               <p className="text-gray-900">
-                {user?.user_metadata?.full_name || t('profile.notProvided')}
+                {user?.full_name || t('profile.notProvided')}
               </p>
             </div>
             <div>
@@ -218,7 +218,7 @@ export default function Dashboard() {
                 {t('profile.accountCreated')}
               </label>
               <p className="text-gray-900">
-                {new Date(user?.created_at).toLocaleDateString()}
+                {user?.created_at && new Date(user.created_at).toLocaleDateString()}
               </p>
             </div>
           </div>

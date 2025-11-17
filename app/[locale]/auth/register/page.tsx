@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
-import { supabase } from '@/lib/supabase';
+import { api } from '@/lib/api';
 
 export default function Register() {
   const router = useRouter();
@@ -45,23 +45,10 @@ export default function Register() {
     setLoading(true);
 
     try {
-      const { data, error } = await supabase.auth.signUp({
-        email: formData.email,
-        password: formData.password,
-        options: {
-          data: {
-            full_name: formData.fullName,
-          },
-        },
-      });
-
-      if (error) throw error;
-
-      if (data.user) {
-        // Show success message
-        alert(t('registrationSuccess'));
-        router.push(`/${locale}/auth/login`);
-      }
+      await api.register(formData.email, formData.password, formData.fullName);
+      // Show success message
+      alert(t('registrationSuccess'));
+      router.push(`/${locale}/dashboard`);
     } catch (error: any) {
       setError(error.message || tErrors('registerError'));
     } finally {
