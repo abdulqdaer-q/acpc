@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
-import { supabase } from '@/lib/supabase';
+import { api } from '@/lib/api';
 
 export default function Login() {
   const router = useRouter();
@@ -24,16 +24,8 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-
-      if (error) throw error;
-
-      if (data.user) {
-        router.push(`/${locale}/dashboard`);
-      }
+      await api.login(email, password);
+      router.push(`/${locale}/dashboard`);
     } catch (error: any) {
       setError(error.message || tErrors('loginError'));
     } finally {
