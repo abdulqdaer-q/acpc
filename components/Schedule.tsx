@@ -1,34 +1,40 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
+
 export default function Schedule() {
+  const t = useTranslations('schedule');
+
   const events = [
     {
-      time: '8:00 AM',
-      title: 'Registration & Check-in',
-      description: 'Teams arrive and complete registration',
+      time: t('events.registration.time'),
+      title: t('events.registration.title'),
+      description: t('events.registration.description'),
     },
     {
-      time: '9:00 AM',
-      title: 'Opening Ceremony',
-      description: 'Welcome address and competition rules',
+      time: t('events.opening.time'),
+      title: t('events.opening.title'),
+      description: t('events.opening.description'),
     },
     {
-      time: '10:00 AM',
-      title: 'Competition Begins',
-      description: '5-hour programming challenge starts',
+      time: t('events.start.time'),
+      title: t('events.start.title'),
+      description: t('events.start.description'),
     },
     {
-      time: '12:00 PM',
-      title: 'Lunch Break',
-      description: 'Provided for all participants',
+      time: t('events.lunch.time'),
+      title: t('events.lunch.title'),
+      description: t('events.lunch.description'),
     },
     {
-      time: '3:00 PM',
-      title: 'Competition Ends',
-      description: 'Final submissions and system freeze',
+      time: t('events.end.time'),
+      title: t('events.end.title'),
+      description: t('events.end.description'),
     },
     {
-      time: '4:00 PM',
-      title: 'Awards Ceremony',
-      description: 'Winners announced and prizes awarded',
+      time: t('events.awards.time'),
+      title: t('events.awards.title'),
+      description: t('events.awards.description'),
     },
   ];
 
@@ -37,10 +43,10 @@ export default function Schedule() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Event Schedule
+            {t('title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Plan your day with our detailed competition timeline.
+            {t('subtitle')}
           </p>
         </div>
 

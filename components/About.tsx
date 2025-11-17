@@ -1,14 +1,19 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
+
 export default function About() {
+  const t = useTranslations('about');
+
   return (
     <section id="about" className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            About ACPC
+            {t('title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            The Aleppo Competitive Programming Competition brings together talented
-            programmers to solve challenging algorithmic problems.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -29,10 +34,9 @@ export default function About() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Team-Based</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">{t('teamBased.title')}</h3>
             <p className="text-gray-600">
-              Compete in teams of up to 3 members, fostering collaboration and
-              communication skills.
+              {t('teamBased.description')}
             </p>
           </div>
 
@@ -53,11 +57,10 @@ export default function About() {
               </svg>
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-2">
-              Challenging Problems
+              {t('challenging.title')}
             </h3>
             <p className="text-gray-600">
-              Tackle a diverse set of algorithmic challenges designed to test your
-              problem-solving abilities.
+              {t('challenging.description')}
             </p>
           </div>
 
@@ -77,10 +80,9 @@ export default function About() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Prizes & Recognition</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">{t('prizes.title')}</h3>
             <p className="text-gray-600">
-              Win prizes and gain recognition for your programming skills among your
-              peers and the wider community.
+              {t('prizes.description')}
             </p>
           </div>
         </div>
