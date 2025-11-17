@@ -16,7 +16,7 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="flex items-center space-x-2 rtl:space-x-reverse">
+    <div className="flex items-center space-x-2 rtl:space-x-reverse rtl:flex-row-reverse">
       <button
         onClick={() => switchLocale('en')}
         className={`px-3 py-1 rounded-lg transition ${
