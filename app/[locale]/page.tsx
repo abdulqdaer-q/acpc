@@ -8,6 +8,7 @@ import Competition from '@/components/Competition';
 import Structure from '@/components/Structure';
 import Organization from '@/components/Organization';
 import Funding from '@/components/Funding';
+import Volunteering from '@/components/Volunteering';
 import Schedule from '@/components/Schedule';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
@@ -25,6 +26,7 @@ export default function Home() {
       <Structure />
       <Organization />
       <Funding />
+      <Volunteering />
       <Schedule />
       <Contact />
       <Footer />

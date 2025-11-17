@@ -28,6 +28,9 @@ export default function Navbar() {
             <Link href={`/${locale}/#competition`} className="text-gray-700 hover:text-primary-600 transition">
               {t('nav.competition')}
             </Link>
+            <Link href={`/${locale}/#volunteering`} className="text-gray-700 hover:text-primary-600 transition">
+              {t('nav.volunteering')}
+            </Link>
             <Link href={`/${locale}/#schedule`} className="text-gray-700 hover:text-primary-600 transition">
               {t('nav.schedule')}
             </Link>
@@ -90,6 +93,12 @@ export default function Navbar() {
               className="block px-3 py-2 text-gray-700 hover:text-primary-600 transition"
             >
               {t('nav.competition')}
+            </Link>
+            <Link
+              href={`/${locale}/#volunteering`}
+              className="block px-3 py-2 text-gray-700 hover:text-primary-600 transition"
+            >
+              {t('nav.volunteering')}
             </Link>
             <Link
               href={`/${locale}/#schedule`}
