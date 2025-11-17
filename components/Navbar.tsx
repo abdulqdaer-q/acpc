@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -13,25 +14,45 @@ export default function Navbar() {
   return (
     <nav className="bg-white shadow-lg fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex items-center">
-            <Link href={`/${locale}`} className="flex items-center">
-              <span className="text-2xl font-bold text-primary-600">{t('common.acpc')}</span>
+        <div className="flex justify-between h-20">
+          <div className="flex items-center space-x-4 rtl:space-x-reverse">
+            <Link href={`/${locale}`} className="flex items-center space-x-3 rtl:space-x-reverse">
+              <Image
+                src="/images/logos/icpc-aleppo.svg"
+                alt="ICPC Aleppo Logo"
+                width={60}
+                height={60}
+                className="h-12 w-auto"
+              />
+              <Image
+                src="/images/logos/aleppo-university.svg"
+                alt="Aleppo University Logo"
+                width={48}
+                height={48}
+                className="h-12 w-auto"
+              />
+              <span className="text-xl font-bold text-primary-600 hidden lg:block">{t('common.acpc')}</span>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
-            <Link href={`/${locale}/#about`} className="text-gray-700 hover:text-primary-600 transition">
+          <div className="hidden md:flex items-center space-x-6 rtl:space-x-reverse rtl:flex-row-reverse">
+            <Link href={`/${locale}`} className="text-gray-700 hover:text-primary-600 transition font-medium">
+              {t('nav.home')}
+            </Link>
+            <Link href={`/${locale}/about`} className="text-gray-700 hover:text-primary-600 transition font-medium">
               {t('nav.about')}
             </Link>
-            <Link href={`/${locale}/#competition`} className="text-gray-700 hover:text-primary-600 transition">
+            <Link href={`/${locale}/competition`} className="text-gray-700 hover:text-primary-600 transition font-medium">
               {t('nav.competition')}
             </Link>
-            <Link href={`/${locale}/#schedule`} className="text-gray-700 hover:text-primary-600 transition">
+            <Link href={`/${locale}/volunteering`} className="text-gray-700 hover:text-primary-600 transition font-medium">
+              {t('nav.volunteering')}
+            </Link>
+            <Link href={`/${locale}/schedule`} className="text-gray-700 hover:text-primary-600 transition font-medium">
               {t('nav.schedule')}
             </Link>
-            <Link href={`/${locale}/#contact`} className="text-gray-700 hover:text-primary-600 transition">
+            <Link href={`/${locale}/contact`} className="text-gray-700 hover:text-primary-600 transition font-medium">
               {t('nav.contact')}
             </Link>
             <LanguageSwitcher />
@@ -80,26 +101,44 @@ export default function Navbar() {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white">
             <Link
-              href={`/${locale}/#about`}
+              href={`/${locale}`}
               className="block px-3 py-2 text-gray-700 hover:text-primary-600 transition"
+              onClick={() => setIsOpen(false)}
+            >
+              {t('nav.home')}
+            </Link>
+            <Link
+              href={`/${locale}/about`}
+              className="block px-3 py-2 text-gray-700 hover:text-primary-600 transition"
+              onClick={() => setIsOpen(false)}
             >
               {t('nav.about')}
             </Link>
             <Link
-              href={`/${locale}/#competition`}
+              href={`/${locale}/competition`}
               className="block px-3 py-2 text-gray-700 hover:text-primary-600 transition"
+              onClick={() => setIsOpen(false)}
             >
               {t('nav.competition')}
             </Link>
             <Link
-              href={`/${locale}/#schedule`}
+              href={`/${locale}/volunteering`}
               className="block px-3 py-2 text-gray-700 hover:text-primary-600 transition"
+              onClick={() => setIsOpen(false)}
+            >
+              {t('nav.volunteering')}
+            </Link>
+            <Link
+              href={`/${locale}/schedule`}
+              className="block px-3 py-2 text-gray-700 hover:text-primary-600 transition"
+              onClick={() => setIsOpen(false)}
             >
               {t('nav.schedule')}
             </Link>
             <Link
-              href={`/${locale}/#contact`}
+              href={`/${locale}/contact`}
               className="block px-3 py-2 text-gray-700 hover:text-primary-600 transition"
+              onClick={() => setIsOpen(false)}
             >
               {t('nav.contact')}
             </Link>
@@ -109,12 +148,14 @@ export default function Navbar() {
             <Link
               href={`/${locale}/auth/login`}
               className="block px-3 py-2 text-primary-600 hover:text-primary-700 font-medium transition"
+              onClick={() => setIsOpen(false)}
             >
               {t('nav.login')}
             </Link>
             <Link
               href={`/${locale}/auth/register`}
               className="block px-3 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition text-center"
+              onClick={() => setIsOpen(false)}
             >
               {t('nav.register')}
             </Link>

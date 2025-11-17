@@ -6,8 +6,10 @@
     "backToHome": "Back to home"
   },
   "nav": {
+    "home": "Home",
     "about": "About",
     "competition": "Competition",
+    "volunteering": "Volunteering",
     "schedule": "Schedule",
     "contact": "Contact",
     "login": "Login",
@@ -281,10 +283,8 @@
     "information": "Contact Information",
     "coordinator": {
       "title": "Competition Supervisor",
-      "name": "Eng. Abdulqader Qassab",
-      "role": "ACPC Supervisor in Aleppo",
-      "whatsapp": "+971547001658",
-      "note": "WhatsApp only"
+      "name": "ACPC Team",
+      "role": "ACPC Supervisor in Aleppo"
     },
     "email": "Email",
     "emailAddress": "contact@acpc.org",
@@ -381,6 +381,133 @@
       "email": "Email",
       "accountCreated": "Account Created",
       "notProvided": "Not provided"
+    }
+  },
+  "volunteering": {
+    "title": "Volunteering Guide",
+    "subtitle": "Join our volunteer team and help make the competition a success",
+    "tabs": {
+      "media": "Media Team",
+      "logistics": "Logistics Team",
+      "ops": "Operations Team",
+      "volunteers": "Volunteers Team"
+    },
+    "common": {
+      "before": "Before Competition",
+      "during": "During Competition",
+      "after": "After Competition"
+    },
+    "media": {
+      "role": {
+        "title": "🎯 What's Your Role?",
+        "items": [
+          "Design and prepare all media and visual content to make the event outstanding.",
+          "Cover all important moments with video and photos and share them on social media.",
+          "Create prints and designs needed by teams and logistics.",
+          "Help prepare photography tools and accessories to get great photos."
+        ]
+      },
+      "tasks": {
+        "title": "What Do You Need to Do?",
+        "before": [
+          "Prepare and set up all large prints (flex, roll-up, Instagram frame, banners).",
+          "Design personal prints (notebooks, mugs, IDs, stickers, badges, paper bags).",
+          "Prepare various prints such as team numbers, paper cups, medals, and photo accessories (pixel glasses, hashtag signs, etc.).",
+          "Prepare social media posting plans and organize a coverage schedule."
+        ],
+        "during": [
+          "Document important moments with photography and video (between teams and volunteers, first to solve, etc.).",
+          "Continuously post updates and photos on social media.",
+          "Ensure all visuals are organized without clutter or technical issues."
+        ],
+        "after": [
+          "Prepare a video for the closing ceremony.",
+          "Share photos of teams - contestants - volunteer teams - qualifiers, etc.",
+          "Upload photos to Google Drive, Google Photos, or similar platforms."
+        ]
+      }
+    },
+    "logistics": {
+      "responsibilities": {
+        "title": "📌 Responsibilities"
+      },
+      "tasks": {
+        "before": [
+          "Confirm hall reservation and arrange entry/exit times.",
+          "Plan how to arrange the hall, tables, chairs, and banners.",
+          "Coordinate purchase/securing and delivery of printed materials (from media team).",
+          "Coordinate purchase/securing and delivery of technical equipment (projector, computers, cables, power).",
+          "Coordinate purchase/securing and delivery of tables, chairs, and banners.",
+          "Coordinate purchase/securing and delivery of food and drinks (for volunteers, organizers, and teams).",
+          "Coordinate purchase/securing and delivery of t-shirts.",
+          "Arrange transportation of materials and teams if needed.",
+          "Secure backup power (generator - UPS).",
+          "Secure accommodation for judges and Syrian participants (hotels - university housing, etc.)."
+        ],
+        "after": [
+          "Return rented or temporary equipment.",
+          "Coordinate hall cleaning.",
+          "Collect remaining materials and store or dispose of them as needed."
+        ]
+      }
+    },
+    "ops": {
+      "role": {
+        "title": "🎯 What's Your Role?",
+        "items": [
+          "Ensure everything in the competition runs smoothly and comfortably.",
+          "Coordinate between teams and follow up on schedules and tasks.",
+          "Manage registration and organize participant entry.",
+          "Handle any problems or emergency requests."
+        ]
+      },
+      "tasks": {
+        "title": "What Do You Need to Do?",
+        "before": [
+          "Prepare a detailed event schedule (competitions, breaks, announcements).",
+          "Set up registration system and prepare materials for participants.",
+          "Announce rules and procedures to all teams and participants."
+        ],
+        "during": [
+          "Manage check-in attendance.",
+          "Follow the schedule and announce updates or changes (with media assistance).",
+          "Help solve problems or inquiries (technical, logistics, or other).",
+          "Ensure venue safety and order, and monitor compliance with rules."
+        ],
+        "after": [
+          "Collect feedback from participants and volunteers about the event.",
+          "Prepare a report on the competition progress and issues that occurred.",
+          "Organize a final meeting with all teams."
+        ]
+      }
+    },
+    "volunteers": {
+      "role": {
+        "title": "🎯 What's Your Role?",
+        "items": [
+          "Help us with everything big and small to make the event successful.",
+          "Be a helping hand to all teams and cover all matters that need support.",
+          "Make participants and everyone feel comfortable and at ease all the time."
+        ]
+      },
+      "tasks": {
+        "title": "What Do You Need to Do?",
+        "before": [
+          "Register your attendance and arrange your schedule with the team so we can organize shifts.",
+          "Get your volunteer ID badges.",
+          "Help the logistics team move some items if needed."
+        ],
+        "during": [
+          "Check-in registration.",
+          "Receive valuables for safekeeping.",
+          "Entry with contestants.",
+          "Distribute balloons.",
+          "Distribute papers that teams print.",
+          "Maintain hall order to avoid excessive noise and disturbance.",
+          "Guide participants if they need help.",
+          "Listen to contestants if they have any requests (technical - prayer, etc.)."
+        ]
+      }
     }
   }
 }
