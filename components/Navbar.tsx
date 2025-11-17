@@ -36,7 +36,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6 rtl:space-x-reverse">
+          <div className="hidden md:flex items-center space-x-6 rtl:space-x-reverse rtl:flex-row-reverse">
             <Link href={`/${locale}`} className="text-gray-700 hover:text-primary-600 transition font-medium">
               {t('nav.home')}
             </Link>
