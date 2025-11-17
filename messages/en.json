@@ -23,18 +23,113 @@
   },
   "about": {
     "title": "About ACPC",
-    "subtitle": "The Aleppo Competitive Programming Competition brings together talented programmers to solve challenging algorithmic problems.",
+    "subtitle": "The Aleppo Collegiate Programming Contest (ACPC) is the first stage of the International Collegiate Programming Contest (ICPC). It aims to develop algorithmic thinking and problem-solving skills among Aleppo University students.",
+    "introduction": "ACPC aims to highlight the International Collegiate Programming Contest as the most important global event in competitive programming and shed light on its academic and research benefits for Aleppo University. ICPC focuses on developing algorithmic thinking and problem-solving skills, giving students experience in competing under time pressure and teamwork, which positively reflects on the university's reputation and motivates students to excel.",
     "teamBased": {
       "title": "Team-Based",
-      "description": "Compete in teams of up to 3 members, fostering collaboration and communication skills."
+      "description": "Compete in teams of exactly 3 members under the supervision of one coach, fostering collaboration, role division, and communication skills."
     },
     "challenging": {
       "title": "Challenging Problems",
-      "description": "Tackle a diverse set of algorithmic challenges designed to test your problem-solving abilities."
+      "description": "Tackle 8-15 high-level algorithmic problems in 5 hours, designed to test your problem-solving and algorithmic thinking abilities."
     },
     "prizes": {
       "title": "Prizes & Recognition",
-      "description": "Win prizes and gain recognition for your programming skills among your peers and the wider community."
+      "description": "Win medals (gold, silver, bronze) and cash prizes, and gain opportunities for training and employment at leading global companies like IBM, Huawei, and JetBrains."
+    }
+  },
+  "history": {
+    "title": "History and Overview of ICPC",
+    "subtitle": "A global journey that began in 1977 and expanded to include over 3,000 universities from 100 countries",
+    "beginning": {
+      "title": "The Beginning (1977)",
+      "description": "ICPC was officially launched in 1977 at Texas A&M University in the United States, where a limited number of students gathered to compete in solving algorithmic problems within a specified time frame."
+    },
+    "expansion": {
+      "title": "Global Expansion",
+      "description": "In the late 1980s, it expanded to North America, then crossed continental borders to include Europe, Asia, Africa, and Latin America. By the mid-1990s, it had become the largest global platform for challenging computer science students."
+    },
+    "worldFinals": {
+      "title": "World Finals",
+      "description": "The first true world finals were held in 1997 in Salzburg, Austria, with 17 teams participating, while today the number approaches 100 teams from different continents around the world."
+    },
+    "modernEra": {
+      "title": "Modern Era (2017 - Present)",
+      "description": "Acquired by the ICPC Foundation in 2017. Over 3,000 universities from about 100 countries participate annually, supported by major sponsors such as IBM, Huawei, and JetBrains."
+    },
+    "format": {
+      "title": "Competition Structure",
+      "teamComposition": "Each team: 3 members + 1 coach",
+      "worldFinalists": "About 100 teams of the best programmers meet in the world finals",
+      "challenge": "12-15 high-level problems in 5 hours",
+      "awards": "Distribution of medals (gold, silver, bronze), certificates of appreciation, and cash prizes"
+    }
+  },
+  "achievements": {
+    "title": "Aleppo University Achievements in ICPC",
+    "subtitle": "A distinguished history in regional and international programming competitions",
+    "introduction": "Aleppo University has a distinguished history in programming competitions, reflecting its prominent position as one of the leading higher education institutions in Syria and the region.",
+    "timeline": {
+      "2016": {
+        "year": "2016",
+        "title": "Gold Medal and Qualification to Thailand",
+        "description": "Aleppo University team won a gold medal at the Arab and African level and qualified to participate in the World Finals held in Thailand."
+      },
+      "2018": {
+        "year": "2018",
+        "title": "Regional Silver Medal",
+        "description": "The team won a silver medal in the regional qualifiers at the Arab and African level."
+      },
+      "2019": {
+        "year": "2019",
+        "title": "Participation in Portugal",
+        "description": "The university team participated in the World Finals held in Portugal, confirming continued presence in global competitions."
+      },
+      "2021": {
+        "year": "2021",
+        "title": "Bronze and Qualification to Bangladesh",
+        "description": "The team won a regional bronze medal, along with participation in the World Finals held in Bangladesh."
+      },
+      "2023": {
+        "year": "2023",
+        "title": "Bronze and Qualification to Egypt",
+        "description": "The team continued its excellence by winning a bronze medal in the regional qualifiers and qualified to participate in the World Finals held in Egypt."
+      },
+      "2024": {
+        "year": "2024",
+        "title": "Syrian Champion and Runner-up",
+        "description": "Aleppo University was crowned champion and runner-up of the programming competition in Syria, an achievement that crowns a long journey of excellence and creativity."
+      }
+    },
+    "summary": "These achievements demonstrate Aleppo University's commitment to developing students' scientific and practical capabilities, and its active role in preparing a generation capable of innovation and competing at the highest levels."
+  },
+  "goals": {
+    "title": "Competition Goals and Outcomes",
+    "subtitle": "Comprehensive development of academic and practical skills",
+    "technical": {
+      "title": "Technical Skills",
+      "algorithms": "Refine skills in algorithm analysis and data structures",
+      "problemSolving": "Develop the ability to solve complex problems",
+      "efficiency": "Drive academic research toward innovating more efficient solutions"
+    },
+    "soft": {
+      "title": "Soft Skills",
+      "teamwork": "Enhance teamwork and effective task division",
+      "pressure": "Develop the ability to work under severe time pressure",
+      "competition": "Foster a spirit of positive competition among students"
+    },
+    "career": {
+      "title": "Career Opportunities",
+      "industry": "Connect students with the job market and global technology companies",
+      "training": "Provide training and employment opportunities at leading companies",
+      "experience": "Enrich students' practical experience and link it to global standards"
+    },
+    "university": {
+      "title": "University Benefits",
+      "ranking": "Raise the university's international academic ranking",
+      "talent": "Attract talented students and provide them with academic incentives",
+      "collaboration": "Enhance research collaboration between departments and algorithm workshops",
+      "partnerships": "Build partnerships with technology companies to sponsor teams"
     }
   },
   "competition": {
@@ -42,19 +137,106 @@
     "subtitle": "Understanding how the competition works and what to expect.",
     "rules": {
       "title": "Contest Rules",
-      "teams": "Teams of 1-3 members",
+      "teams": "Teams of exactly 3 members + 1 coach",
       "duration": "5-hour competition duration",
-      "problems": "8-12 algorithmic problems",
+      "problems": "12-15 high-level algorithmic problems",
       "computer": "One computer per team",
-      "languages": "Standard programming languages supported (C++, Java, Python)"
+      "languages": "Standard programming languages supported (C++, Java, Python)",
+      "system": "PC² system for submitting and evaluating solutions"
     },
     "eligibility": {
       "title": "Who Can Participate?",
-      "university": "University students (undergraduate and graduate)",
-      "highSchool": "High school students with programming experience",
+      "university": "Any student enrolled at Aleppo University (undergraduate and graduate)",
+      "free": "Free participation at local and national levels",
       "passionate": "Passionate programmers and problem solvers",
-      "allLevels": "Open to all skill levels",
-      "noAge": "No age restrictions"
+      "allLevels": "Open to all skill levels from beginners to professionals",
+      "teamwork": "Ability to work in a team under time pressure"
+    }
+  },
+  "structure": {
+    "title": "Competition Structure",
+    "subtitle": "Four stages from local to global",
+    "stages": {
+      "university": {
+        "title": "Stage 1: University Level",
+        "name": "Aleppo Collegiate Programming Contest (ACPC)",
+        "description": "Any student enrolled at Aleppo University can participate. Top teams qualify for the national competition.",
+        "participants": "All Aleppo University students",
+        "qualification": "Number of qualifying teams determined by total number of participants"
+      },
+      "national": {
+        "title": "Stage 2: National Level",
+        "name": "Syrian Collegiate Programming Contest (SCPC)",
+        "description": "Qualifying teams from different Syrian universities participate. A different university hosts this competition each year.",
+        "participants": "Qualifying teams from Syrian universities",
+        "qualification": "A number of teams qualify for the regional competition"
+      },
+      "regional": {
+        "title": "Stage 3: Regional Level",
+        "name": "Africa & Arab Collegiate Programming Contest (ACPC)",
+        "description": "A highly prestigious competition where elite Arab and African programmers compete. Syria has a strong presence in this competition.",
+        "participants": "Elite teams from Arab and African countries",
+        "fee": "$500 registration fee per individual",
+        "qualification": "Limited number of teams qualify for the world finals"
+      },
+      "world": {
+        "title": "Stage 4: World Level",
+        "name": "International Collegiate Programming Contest (ICPC)",
+        "description": "The world's most popular programming competition, gathering the best teams from all regions. Attracts global software companies offering job opportunities.",
+        "participants": "About 100 teams of the world's best programmers",
+        "location": "Held in a different country each season",
+        "costs": "Airfare and visa costs only (accommodation and transport provided by competition management)"
+      }
+    }
+  },
+  "organization": {
+    "title": "Competition Organization",
+    "subtitle": "Two days of precisely organized events",
+    "practiceDay": {
+      "title": "Practice Competition Day",
+      "registration": "Team registration and receiving competition t-shirts",
+      "photos": "Individual and group photos",
+      "technical": "Technical session explaining the PC² software system",
+      "practice": "Practice competition for 2-3 hours to test equipment and system"
+    },
+    "competitionDay": {
+      "title": "Official Competition Day",
+      "duration": "5 hours of programming challenge",
+      "problems": "12-15 algorithmic problems",
+      "balloon": "Balloon attached when a problem is solved correctly",
+      "firstSolve": "Photos taken of teams solving problems for the first time",
+      "scoreboard": "Results displayed during first 4 hours only",
+      "freeze": "Results frozen in the last hour",
+      "ceremony": "Closing ceremony to honor winners and announce qualifiers"
+    },
+    "teams": {
+      "title": "Organizing Teams",
+      "organizing": "Organizing team: Overall supervision and coordination with sponsors and university administration",
+      "logistics": "Logistics team: Coordination and supervision of venue and physical equipment",
+      "media": "Media team: Promoting the competition and sponsoring companies",
+      "technical": "Technical team: Setting up computers and other technical requirements",
+      "volunteers": "Volunteer team: Assisting in organization and meeting participants' needs",
+      "judges": "Judges team: Preparing problems and answering queries (from other universities)",
+      "note": "All these teams rely primarily on university students"
+    }
+  },
+  "funding": {
+    "title": "Competition Funding",
+    "subtitle": "Joint support from university and private sector",
+    "university": {
+      "title": "Host University",
+      "description": "The host university contributes to funding events and infrastructure"
+    },
+    "sponsors": {
+      "title": "Sponsors and Supporters",
+      "description": "Many Syrian companies support the programming competition to provide job opportunities for outstanding students and promote their companies.",
+      "list": "Syriatel, MTN, Tradinos, Al Baraka Bank, Sanad Youth Development Foundation"
+    },
+    "participation": {
+      "title": "Participation Costs",
+      "local": "Free at university and national levels",
+      "regional": "$500 per individual at regional level",
+      "world": "Airfare and visa only (accommodation and transport provided)"
     }
   },
   "schedule": {
@@ -97,10 +279,17 @@
     "title": "Get In Touch",
     "subtitle": "Have questions? We're here to help!",
     "information": "Contact Information",
+    "coordinator": {
+      "title": "Competition Supervisor",
+      "name": "Eng. Abdulqader Qassab",
+      "role": "ACPC Supervisor in Aleppo",
+      "whatsapp": "+971547001658",
+      "note": "WhatsApp only"
+    },
     "email": "Email",
     "emailAddress": "contact@acpc.org",
     "location": "Location",
-    "locationAddress": "Aleppo, Syria",
+    "locationAddress": "Aleppo University, Aleppo, Syria",
     "followUs": "Follow Us",
     "twitter": "Twitter",
     "github": "GitHub",
