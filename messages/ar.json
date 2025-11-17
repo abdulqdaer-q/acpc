@@ -6,11 +6,11 @@
     "backToHome": "العودة إلى الصفحة الرئيسية"
   },
   "nav": {
-    "about": "عن المسابقة",
-    "competition": "المنافسة",
+    "about": "حول",
+    "competition": "المسابقة",
     "volunteering": "التطوع",
-    "schedule": "الجدول الزمني",
-    "contact": "اتصل بنا",
+    "schedule": "الجدول",
+    "contact": "التواصل",
     "login": "تسجيل الدخول",
     "register": "التسجيل",
     "logout": "تسجيل الخروج"
@@ -282,10 +282,8 @@
     "information": "معلومات الاتصال",
     "coordinator": {
       "title": "المشرف على المسابقة",
-      "name": "م. عبد القادر قصّاب",
-      "role": "مشرف على المسابقة على مستوى حلب",
-      "whatsapp": "+971547001658",
-      "note": "واتس أب فقط"
+      "name": "فريق ACPC",
+      "role": "مشرف على المسابقة على مستوى حلب"
     },
     "email": "البريد الإلكتروني",
     "emailAddress": "contact@acpc.org",
