@@ -6,11 +6,11 @@
     "backToHome": "العودة إلى الصفحة الرئيسية"
   },
   "nav": {
-    "about": "عن المسابقة",
-    "competition": "المنافسة",
+    "about": "حول",
+    "competition": "المسابقة",
     "volunteering": "التطوع",
-    "schedule": "الجدول الزمني",
-    "contact": "اتصل بنا",
+    "schedule": "الجدول",
+    "contact": "التواصل",
     "login": "تسجيل الدخول",
     "register": "التسجيل",
     "logout": "تسجيل الخروج"
