@@ -1,0 +1,25 @@
+<svg width="300" height="120" viewBox="0 0 300 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- ICPC Aleppo Logo -->
+
+  <!-- ICPC Emblem Circle -->
+  <circle cx="60" cy="60" r="50" fill="#1E3A8A"/>
+  <circle cx="60" cy="60" r="45" fill="none" stroke="#FBBF24" stroke-width="2"/>
+
+  <!-- Code Brackets -->
+  <path d="M40 40L25 60L40 80" stroke="#FBBF24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M80 40L95 60L80 80" stroke="#FBBF24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <line x1="70" y1="35" x2="50" y2="85" stroke="#FBBF24" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Text: ICPC -->
+  <text x="130" y="50" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#1E3A8A">ICPC</text>
+
+  <!-- Text: ALEPPO -->
+  <text x="130" y="80" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#059669">ALEPPO</text>
+
+  <!-- Decorative Line -->
+  <line x1="130" y1="55" x2="290" y2="55" stroke="#FBBF24" stroke-width="2"/>
+
+  <!-- Small Stars -->
+  <path d="M265 30L267 36L273 36L268 40L270 46L265 42L260 46L262 40L257 36L263 36Z" fill="#FBBF24"/>
+  <path d="M285 35L286 38L289 38L286 40L287 43L285 41L283 43L284 40L281 38L284 38Z" fill="#FBBF24"/>
+</svg>

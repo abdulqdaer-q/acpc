@@ -1,0 +1,26 @@
+{
+  "name": "ACPC - Aleppo Competitive Programming Competition",
+  "short_name": "ACPC",
+  "description": "Join the premier competitive programming competition in Aleppo",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1E3A8A",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/images/logos/icpc-aleppo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "programming", "competition"],
+  "lang": "en",
+  "dir": "ltr"
+}
