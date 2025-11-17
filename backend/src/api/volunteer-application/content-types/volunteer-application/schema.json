@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "volunteer_applications",
+  "info": {
+    "singularName": "volunteer-application",
+    "pluralName": "volunteer-applications",
+    "displayName": "Volunteer Application",
+    "description": "Volunteer applications for different teams"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "team": {
+      "type": "enumeration",
+      "enum": ["media", "logistics", "ops", "volunteers"],
+      "required": true
+    },
+    "experience": {
+      "type": "text",
+      "required": true
+    },
+    "availability": {
+      "type": "text",
+      "required": true
+    },
+    "motivation": {
+      "type": "text",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["pending", "approved", "rejected"],
+      "default": "pending"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

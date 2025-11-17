@@ -1,15 +1,17 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
 
 export interface User {
-  id: string;
+  id: number;
+  username: string;
   email: string;
-  full_name: string | null;
-  created_at: string;
+  provider?: string;
+  confirmed?: boolean;
+  blocked?: boolean;
 }
 
 export interface AuthResponse {
+  jwt: string;
   user: User;
-  token: string;
 }
 
 export interface ErrorResponse {
@@ -103,29 +105,33 @@ class APIClient {
     password: string,
     fullName?: string
   ): Promise<AuthResponse> {
-    const data = await this.request<AuthResponse>('/auth/register', {
+    const data = await this.request<AuthResponse>('/api/auth/local/register', {
       method: 'POST',
-      body: JSON.stringify({ email, password, fullName }),
+      body: JSON.stringify({
+        username: email.split('@')[0],
+        email,
+        password
+      }),
     });
 
-    this.setToken(data.token);
+    this.setToken(data.jwt);
     return data;
   }
 
   async login(email: string, password: string): Promise<AuthResponse> {
-    const data = await this.request<AuthResponse>('/auth/login', {
+    const data = await this.request<AuthResponse>('/api/auth/local', {
       method: 'POST',
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ identifier: email, password }),
     });
 
-    this.setToken(data.token);
+    this.setToken(data.jwt);
     return data;
   }
 
   async getCurrentUser(): Promise<User | null> {
     try {
-      const data = await this.request<{ user: User }>('/auth/me');
-      return data.user;
+      const data = await this.request<User>('/api/users/me');
+      return data;
     } catch (error) {
       this.removeToken();
       return null;
@@ -133,15 +139,7 @@ class APIClient {
   }
 
   async logout(): Promise<void> {
-    try {
-      await this.request('/auth/logout', {
-        method: 'POST',
-      });
-    } catch (error) {
-      // Ignore logout errors
-    } finally {
-      this.removeToken();
-    }
+    this.removeToken();
   }
 
   isAuthenticated(): boolean {
@@ -149,54 +147,107 @@ class APIClient {
   }
 
   // Contact Methods
-  async submitContactMessage(data: ContactMessageData): Promise<{ message: string; id: string }> {
-    return this.request('/contact', {
+  async submitContactMessage(data: ContactMessageData): Promise<{ data: any }> {
+    return this.request('/api/contact-messages', {
       method: 'POST',
-      body: JSON.stringify(data),
+      body: JSON.stringify({ data }),
     });
   }
 
   // Volunteer Methods
   async submitVolunteerApplication(data: VolunteerApplicationData): Promise<any> {
-    return this.request('/volunteers', {
+    return this.request('/api/volunteer-applications', {
       method: 'POST',
-      body: JSON.stringify(data),
+      body: JSON.stringify({ data }),
     });
   }
 
   async getMyVolunteerApplications(): Promise<any> {
-    return this.request('/volunteers/my-applications');
+    const user = await this.getCurrentUser();
+    if (!user) return { data: [] };
+
+    return this.request(`/api/volunteer-applications?filters[user][id][$eq]=${user.id}&populate=*`);
   }
 
   // Team Methods
   async createTeam(data: TeamData): Promise<any> {
-    return this.request('/teams', {
+    const user = await this.getCurrentUser();
+
+    // First create the team
+    const teamPayload = {
+      data: {
+        name: data.name,
+        university: data.university,
+        coach_name: data.coachName,
+        coach_email: data.coachEmail,
+        coach_phone: data.coachPhone,
+        created_by_user: user?.id,
+        status: 'pending'
+      }
+    };
+
+    const teamResponse = await this.request<{ data: any }>('/api/teams', {
       method: 'POST',
-      body: JSON.stringify(data),
+      body: JSON.stringify(teamPayload),
     });
+
+    // Then create team members
+    const teamId = teamResponse.data.id;
+    for (const member of data.members) {
+      await this.request('/api/team-members', {
+        method: 'POST',
+        body: JSON.stringify({
+          data: {
+            name: member.name,
+            email: member.email,
+            student_id: member.studentId,
+            year: member.year,
+            major: member.major,
+            role: 'member',
+            team: teamId
+          }
+        }),
+      });
+    }
+
+    return teamResponse;
   }
 
   async getMyTeams(): Promise<any> {
-    return this.request('/teams/my-teams');
+    const user = await this.getCurrentUser();
+    if (!user) return { data: [] };
+
+    return this.request(`/api/teams?filters[created_by_user][id][$eq]=${user.id}&populate=*`);
   }
 
   async getTeamById(id: string): Promise<any> {
-    return this.request(`/teams/${id}`);
+    return this.request(`/api/teams/${id}?populate=*`);
   }
 
   async getAllTeams(includeMembers: boolean = false): Promise<any> {
-    return this.request(`/teams?includeMembers=${includeMembers}`);
+    const populate = includeMembers ? '?populate=*' : '';
+    return this.request(`/api/teams${populate}`);
   }
 
   async addTeamMember(teamId: string, member: TeamMemberData): Promise<any> {
-    return this.request(`/teams/${teamId}/members`, {
+    return this.request('/api/team-members', {
       method: 'POST',
-      body: JSON.stringify(member),
+      body: JSON.stringify({
+        data: {
+          name: member.name,
+          email: member.email,
+          student_id: member.studentId,
+          year: member.year,
+          major: member.major,
+          role: 'member',
+          team: teamId
+        }
+      }),
     });
   }
 
   async removeTeamMember(teamId: string, memberId: string): Promise<any> {
-    return this.request(`/teams/${teamId}/members/${memberId}`, {
+    return this.request(`/api/team-members/${memberId}`, {
       method: 'DELETE',
     });
   }
