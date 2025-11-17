@@ -147,10 +147,10 @@
     "eligibility": {
       "title": "Who Can Participate?",
       "university": "Any student enrolled at Aleppo University (undergraduate and graduate)",
-      "free": "Free participation at local and national levels",
+      "highSchool": "High school students with advanced programming skills",
       "passionate": "Passionate programmers and problem solvers",
       "allLevels": "Open to all skill levels from beginners to professionals",
-      "teamwork": "Ability to work in a team under time pressure"
+      "noAge": "No age limit - all motivated individuals welcome"
     }
   },
   "structure": {
