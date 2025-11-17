@@ -1,7 +1,13 @@
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
+import History from '@/components/History';
+import Achievements from '@/components/Achievements';
+import Goals from '@/components/Goals';
 import Competition from '@/components/Competition';
+import Structure from '@/components/Structure';
+import Organization from '@/components/Organization';
+import Funding from '@/components/Funding';
 import Schedule from '@/components/Schedule';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
@@ -12,7 +18,13 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <History />
+      <Achievements />
+      <Goals />
       <Competition />
+      <Structure />
+      <Organization />
+      <Funding />
       <Schedule />
       <Contact />
       <Footer />
