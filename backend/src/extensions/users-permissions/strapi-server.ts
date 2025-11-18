@@ -29,7 +29,7 @@ export default (plugin) => {
     ...plugin.controllers.user,
     ...userControllers,
   };
-
+  console.log({x: plugin.controllers.user, y: userControllers, z: userRoutes.routes})
   // Add custom routes
   plugin.routes['content-api'].routes.push(...authRoutes.routes);
   plugin.routes['content-api'].routes.push(...userRoutes.routes);

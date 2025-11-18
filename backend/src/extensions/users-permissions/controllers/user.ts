@@ -16,6 +16,16 @@ export default {
         return ctx.badRequest('Missing required profile fields');
       }
 
+      // First check if user exists
+      const existingUser = await strapi.query('plugin::users-permissions.user').findOne({
+        where: { id: userId },
+      });
+      console.log({existingUser})
+
+      if (!existingUser) {
+        return ctx.notFound('User not found ' + userId);
+      }
+
       // Update user profile
       const updatedUser = await strapi.query('plugin::users-permissions.user').update({
         where: { id: userId },
@@ -29,6 +39,10 @@ export default {
           profile_completed: true,
         },
       });
+      
+      if (!updatedUser) {
+        return ctx.notFound('User not found ' + userId);
+      }
 
       // Remove sensitive fields
       const sanitizedUser = {
@@ -47,6 +61,7 @@ export default {
 
       ctx.send({ user: sanitizedUser });
     } catch (error) {
+      strapi.log.error('Error updating profile:', error);
       ctx.throw(500, error);
     }
   },
@@ -77,7 +92,7 @@ export default {
       });
 
       if (!user) {
-        return ctx.notFound('User not found');
+        return ctx.notFound('User not found ' + userId);
       }
 
       // Remove sensitive fields

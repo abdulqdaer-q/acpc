@@ -34,6 +34,7 @@ export default function Schedule() {
     const fetchActiveContest = async () => {
       try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contests/active`);
+        console.log({response})
         if (response.ok) {
           const data = await response.json();
           setContest(data);

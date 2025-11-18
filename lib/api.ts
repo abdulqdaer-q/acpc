@@ -159,7 +159,7 @@ class APIClient {
 
   async updateProfile(data: ProfileData): Promise<{ user: User }> {
     return this.request('/api/users/profile', {
-      method: 'PUT',
+      method: 'POST',
       body: JSON.stringify(data),
     });
   }

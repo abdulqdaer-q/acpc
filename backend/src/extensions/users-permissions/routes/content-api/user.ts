@@ -1,11 +1,12 @@
 export default {
   routes: [
     {
-      method: 'PUT',
+      method: 'POST',
       path: '/users/profile',
       handler: 'user.updateProfile',
       config: {
         prefix: '',
+        policies: [],
       },
     },
     {
@@ -14,6 +15,7 @@ export default {
       handler: 'user.getCoaches',
       config: {
         prefix: '',
+        policies: [],
       },
     },
     {
@@ -22,6 +24,7 @@ export default {
       handler: 'user.getMe',
       config: {
         prefix: '',
+        policies: [],
       },
     },
   ],

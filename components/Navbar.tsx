@@ -44,9 +44,9 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center flex-1 justify-end">
+          <div className="hidden md:flex items-center flex-1 justify-end gap-8">
             {/* Nav Links */}
-            <div className="flex items-center space-x-6 rtl:space-x-reverse mx-8">
+            <div className="flex items-center gap-6">
               <Link href={`/${locale}`} className="text-gray-700 hover:text-primary-600 transition font-medium">
                 {t('nav.home')}
               </Link>
@@ -68,7 +68,7 @@ export default function Navbar() {
             </div>
 
             {/* Profile/Auth Section - Always on the RIGHT */}
-            <div className="flex items-center space-x-4 rtl:space-x-reverse">{/* Keep space-x-reverse for spacing between items */}
+            <div className="flex items-center gap-4">
               <LanguageSwitcher />
               {!loading && (
               <>
@@ -76,7 +76,7 @@ export default function Navbar() {
                   <div className="relative">
                     <button
                       onClick={() => setIsProfileOpen(!isProfileOpen)}
-                      className="flex items-center space-x-2 text-gray-700 hover:text-primary-600 transition focus:outline-none"
+                      className="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition focus:outline-none"
                     >
                       <div className="w-8 h-8 bg-primary-600 rounded-full flex items-center justify-center text-white font-semibold">
                         {user.email?.[0]?.toUpperCase() || 'U'}
