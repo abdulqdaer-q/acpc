@@ -16,12 +16,12 @@ export default function EditProfilePage() {
   const [user, setUser] = useState<User | null>(null);
 
   const [formData, setFormData] = useState({
-    full_name_arabic: '',
-    birth_date: '',
-    tshirt_size: 'M',
-    year_in_uni: '1',
+    fullNameArabic: '',
+    birthDate: '',
+    tshirtSize: 'M',
+    yearInUni: '1',
     faculty: 'CS',
-    uni_id: '',
+    uniId: '',
   });
 
   useEffect(() => {
@@ -35,12 +35,12 @@ export default function EditProfilePage() {
 
       setUser(currentUser);
       setFormData({
-        full_name_arabic: currentUser.full_name_arabic || '',
-        birth_date: currentUser.birth_date || '',
-        tshirt_size: currentUser.tshirt_size || 'M',
-        year_in_uni: currentUser.year_in_uni || '1',
+        fullNameArabic: currentUser.fullNameArabic || '',
+        birthDate: currentUser.birthDate || '',
+        tshirtSize: currentUser.tshirtSize || 'M',
+        yearInUni: currentUser.yearInUni || '1',
         faculty: currentUser.faculty || 'CS',
-        uni_id: currentUser.uni_id || '',
+        uniId: currentUser.uniId || '',
       });
       setLoading(false);
     };
@@ -113,15 +113,15 @@ export default function EditProfilePage() {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Full Name in Arabic */}
             <div>
-              <label htmlFor="full_name_arabic" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="fullNameArabic" className="block text-sm font-medium text-gray-700 mb-2">
                 Full Name (Arabic) *
               </label>
               <input
-                id="full_name_arabic"
-                name="full_name_arabic"
+                id="fullNameArabic"
+                name="fullNameArabic"
                 type="text"
                 required
-                value={formData.full_name_arabic}
+                value={formData.fullNameArabic}
                 onChange={handleChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent text-gray-900 placeholder-gray-400"
                 placeholder="الاسم الكامل"
@@ -130,15 +130,15 @@ export default function EditProfilePage() {
 
             {/* Birth Date */}
             <div>
-              <label htmlFor="birth_date" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="birthDate" className="block text-sm font-medium text-gray-700 mb-2">
                 Birth Date *
               </label>
               <input
-                id="birth_date"
-                name="birth_date"
+                id="birthDate"
+                name="birthDate"
                 type="date"
                 required
-                value={formData.birth_date}
+                value={formData.birthDate}
                 onChange={handleChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent text-gray-900 placeholder-gray-400"
               />
@@ -146,14 +146,14 @@ export default function EditProfilePage() {
 
             {/* T-Shirt Size */}
             <div>
-              <label htmlFor="tshirt_size" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="tshirtSize" className="block text-sm font-medium text-gray-700 mb-2">
                 T-Shirt Size *
               </label>
               <select
-                id="tshirt_size"
-                name="tshirt_size"
+                id="tshirtSize"
+                name="tshirtSize"
                 required
-                value={formData.tshirt_size}
+                value={formData.tshirtSize}
                 onChange={handleChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent text-gray-900 bg-white"
               >
@@ -168,14 +168,14 @@ export default function EditProfilePage() {
 
             {/* Year in University */}
             <div>
-              <label htmlFor="year_in_uni" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="yearInUni" className="block text-sm font-medium text-gray-700 mb-2">
                 Year in University *
               </label>
               <select
-                id="year_in_uni"
-                name="year_in_uni"
+                id="yearInUni"
+                name="yearInUni"
                 required
-                value={formData.year_in_uni}
+                value={formData.yearInUni}
                 onChange={handleChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent text-gray-900 bg-white"
               >
@@ -210,14 +210,14 @@ export default function EditProfilePage() {
 
             {/* University ID */}
             <div>
-              <label htmlFor="uni_id" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="uniId" className="block text-sm font-medium text-gray-700 mb-2">
                 University ID (Optional)
               </label>
               <input
-                id="uni_id"
-                name="uni_id"
+                id="uniId"
+                name="uniId"
                 type="text"
-                value={formData.uni_id}
+                value={formData.uniId}
                 onChange={handleChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent text-gray-900 placeholder-gray-400"
                 placeholder="Enter your university ID"

@@ -25,15 +25,15 @@
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user"
     },
-    "coach_name": {
+    "coachName": {
       "type": "string",
       "required": false
     },
-    "coach_email": {
+    "coachEmail": {
       "type": "email",
       "required": false
     },
-    "coach_phone": {
+    "coachPhone": {
       "type": "string",
       "required": false
     },
@@ -42,7 +42,7 @@
       "enum": ["pending", "approved", "rejected"],
       "default": "pending"
     },
-    "created_by_user": {
+    "createdByUser": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user"
@@ -53,7 +53,7 @@
       "target": "api::team-member.team-member",
       "mappedBy": "team"
     },
-    "contest_registrations": {
+    "contestRegistrations": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::contest-registration.contest-registration",

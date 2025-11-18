@@ -2,17 +2,17 @@ export default {
   async updateProfile(ctx) {
     const userId = ctx.state.user.id;
     const {
-      full_name_arabic,
-      birth_date,
-      tshirt_size,
-      year_in_uni,
+      fullNameArabic,
+      birthDate,
+      tshirtSize,
+      yearInUni,
       faculty,
-      uni_id,
+      uniId,
     } = ctx.request.body;
 
     try {
       // Validate required fields for profile completion
-      if (!full_name_arabic || !birth_date || !tshirt_size || !year_in_uni || !faculty) {
+      if (!fullNameArabic || !birthDate || !tshirtSize || !yearInUni || !faculty) {
         return ctx.badRequest('Missing required profile fields');
       }
 
@@ -30,13 +30,13 @@ export default {
       const updatedUser = await strapi.query('plugin::users-permissions.user').update({
         where: { id: userId },
         data: {
-          full_name_arabic,
-          birth_date,
-          tshirt_size,
-          year_in_uni,
+          fullNameArabic,
+          birthDate,
+          tshirtSize,
+          yearInUni,
           faculty,
-          uni_id: uni_id || null,
-          profile_completed: true,
+          uniId: uniId || null,
+          profileCompleted: true,
         },
       });
       
@@ -49,14 +49,14 @@ export default {
         id: updatedUser.id,
         username: updatedUser.username,
         email: updatedUser.email,
-        full_name_arabic: updatedUser.full_name_arabic,
-        birth_date: updatedUser.birth_date,
-        tshirt_size: updatedUser.tshirt_size,
-        year_in_uni: updatedUser.year_in_uni,
+        fullNameArabic: updatedUser.fullNameArabic,
+        birthDate: updatedUser.birthDate,
+        tshirtSize: updatedUser.tshirtSize,
+        yearInUni: updatedUser.yearInUni,
         faculty: updatedUser.faculty,
-        uni_id: updatedUser.uni_id,
-        profile_completed: updatedUser.profile_completed,
-        user_role: updatedUser.user_role,
+        uniId: updatedUser.uniId,
+        profileCompleted: updatedUser.profileCompleted,
+        userRole: updatedUser.userRole,
       };
 
       ctx.send({ user: sanitizedUser });
@@ -70,8 +70,8 @@ export default {
     try {
       // Get all users with coach role
       const coaches = await strapi.query('plugin::users-permissions.user').findMany({
-        where: { user_role: 'coach' },
-        select: ['id', 'username', 'email', 'full_name_arabic'],
+        where: { userRole: 'coach' },
+        select: ['id', 'username', 'email', 'fullNameArabic'],
       });
 
       ctx.send({ data: coaches });
@@ -100,14 +100,14 @@ export default {
         id: user.id,
         username: user.username,
         email: user.email,
-        full_name_arabic: user.full_name_arabic,
-        birth_date: user.birth_date,
-        tshirt_size: user.tshirt_size,
-        year_in_uni: user.year_in_uni,
+        fullNameArabic: user.fullNameArabic,
+        birthDate: user.birthDate,
+        tshirtSize: user.tshirtSize,
+        yearInUni: user.yearInUni,
         faculty: user.faculty,
-        uni_id: user.uni_id,
-        profile_completed: user.profile_completed,
-        user_role: user.user_role,
+        uniId: user.uniId,
+        profileCompleted: user.profileCompleted,
+        userRole: user.userRole,
         confirmed: user.confirmed,
         blocked: user.blocked,
         role: user.role,

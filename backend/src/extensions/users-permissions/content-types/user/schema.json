@@ -65,20 +65,20 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "full_name_arabic": {
+    "fullNameArabic": {
       "type": "string",
       "required": false
     },
-    "birth_date": {
+    "birthDate": {
       "type": "date",
       "required": false
     },
-    "tshirt_size": {
+    "tshirtSize": {
       "type": "enumeration",
       "enum": ["S", "M", "L", "XL", "XXL", "XXXL"],
       "required": false
     },
-    "year_in_uni": {
+    "yearInUni": {
       "type": "enumeration",
       "enum": ["first", "second", "third", "fourth", "fifth", "sixth", "graduated"],
       "required": false
@@ -88,16 +88,16 @@
       "enum": ["ITE", "CS", "Other"],
       "required": false
     },
-    "uni_id": {
+    "uniId": {
       "type": "string",
       "required": false
     },
-    "profile_completed": {
+    "profileCompleted": {
       "type": "boolean",
       "default": false,
       "required": true
     },
-    "user_role": {
+    "userRole": {
       "type": "enumeration",
       "enum": ["user", "coach", "volunteer", "sponsor"],
       "default": "user",

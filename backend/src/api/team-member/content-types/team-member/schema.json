@@ -25,7 +25,7 @@
       "type": "email",
       "required": false
     },
-    "student_id": {
+    "studentId": {
       "type": "string",
       "required": false
     },
@@ -39,15 +39,15 @@
       "min": 1,
       "max": 6
     },
-    "full_name_arabic": {
+    "fullNameArabic": {
       "type": "string",
       "required": false
     },
-    "birth_date": {
+    "birthDate": {
       "type": "date",
       "required": false
     },
-    "tshirt_size": {
+    "tshirtSize": {
       "type": "enumeration",
       "enum": ["S", "M", "L", "XL", "XXL", "XXXL"],
       "required": false

@@ -16,7 +16,7 @@ export default {
           where: { id: { $in: userIds } },
         });
 
-        const incompletedUsers = users.filter(u => !u.profile_completed);
+        const incompletedUsers = users.filter(u => !u.profileCompleted);
         if (incompletedUsers.length > 0) {
           return ctx.badRequest('All team members must complete their profiles before joining a team');
         }
@@ -29,7 +29,7 @@ export default {
           university,
           coach,
           status: 'pending',
-          created_by_user: userId,
+          createdByUser: userId,
         } as any,
       });
 
@@ -48,9 +48,9 @@ export default {
         populate: {
           members: true,
           coach: {
-            fields: ['id', 'username', 'email', 'full_name_arabic'],
+            fields: ['id', 'username', 'email', 'fullNameArabic'],
           },
-          created_by_user: {
+          createdByUser: {
             fields: ['id', 'username', 'email'],
           },
         },
@@ -88,7 +88,7 @@ export default {
           where: { id: memberData.user },
         });
 
-        if (!user || !user.profile_completed) {
+        if (!user || !user.profileCompleted) {
           return ctx.badRequest('User must complete their profile before joining a team');
         }
       }
@@ -115,7 +115,7 @@ export default {
       // Find teams created by the user
       const createdTeams = await strapi.db.query('api::team.team').findMany({
         where: {
-          created_by_user: { id: userId },
+          createdByUser: { id: userId },
         },
         populate: {
           members: {
@@ -124,7 +124,7 @@ export default {
             },
           },
           coach: true,
-          created_by_user: true,
+          createdByUser: true,
         },
       });
 
@@ -142,7 +142,7 @@ export default {
             },
           },
           coach: true,
-          created_by_user: true,
+          createdByUser: true,
         },
       });
 
@@ -158,7 +158,7 @@ export default {
             },
           },
           coach: true,
-          created_by_user: true,
+          createdByUser: true,
         },
       });
 
