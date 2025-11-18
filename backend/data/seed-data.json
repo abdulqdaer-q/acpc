@@ -1,0 +1,300 @@
+{
+  "users": [
+    {
+      "username": "coach_birzeit",
+      "email": "coach@birzeit.edu",
+      "password": "Password123!",
+      "confirmed": true,
+      "blocked": false
+    },
+    {
+      "username": "coach_najah",
+      "email": "coach@najah.edu",
+      "password": "Password123!",
+      "confirmed": true,
+      "blocked": false
+    },
+    {
+      "username": "coach_aqu",
+      "email": "coach@aqu.edu",
+      "password": "Password123!",
+      "confirmed": true,
+      "blocked": false
+    },
+    {
+      "username": "volunteer_user",
+      "email": "volunteer@example.com",
+      "password": "Password123!",
+      "confirmed": true,
+      "blocked": false
+    }
+  ],
+  "teams": [
+    {
+      "name": "Birzeit Coders",
+      "university": "Birzeit University",
+      "coach_name": "Dr. Ahmad Khalil",
+      "coach_email": "coach@birzeit.edu",
+      "coach_phone": "+970-599-123456",
+      "status": "approved"
+    },
+    {
+      "name": "An-Najah Algorithms",
+      "university": "An-Najah National University",
+      "coach_name": "Dr. Fatima Hassan",
+      "coach_email": "coach@najah.edu",
+      "coach_phone": "+970-599-234567",
+      "status": "approved"
+    },
+    {
+      "name": "Al-Quds Innovators",
+      "university": "Al-Quds University",
+      "coach_name": "Prof. Omar Saleh",
+      "coach_email": "coach@aqu.edu",
+      "coach_phone": "+970-599-345678",
+      "status": "pending"
+    },
+    {
+      "name": "Hebron Tech Stars",
+      "university": "Hebron University",
+      "coach_name": "Dr. Nadia Jabari",
+      "coach_email": "coach@hebron.edu",
+      "coach_phone": "+970-599-456789",
+      "status": "approved"
+    },
+    {
+      "name": "Palestine Polytechnic",
+      "university": "Palestine Polytechnic University",
+      "coach_name": "Dr. Tariq Shahin",
+      "coach_email": "coach@ppu.edu",
+      "coach_phone": "+970-599-567890",
+      "status": "rejected"
+    }
+  ],
+  "teamMembers": [
+    {
+      "name": "Mohammed Issa",
+      "email": "mohammed.issa@birzeit.edu",
+      "student_id": "1201234",
+      "major": "Computer Science",
+      "year": 3,
+      "role": "captain",
+      "teamIndex": 0
+    },
+    {
+      "name": "Layla Ahmad",
+      "email": "layla.ahmad@birzeit.edu",
+      "student_id": "1201235",
+      "major": "Software Engineering",
+      "year": 3,
+      "role": "member",
+      "teamIndex": 0
+    },
+    {
+      "name": "Yusuf Mansour",
+      "email": "yusuf.mansour@birzeit.edu",
+      "student_id": "1201236",
+      "major": "Computer Science",
+      "year": 4,
+      "role": "member",
+      "teamIndex": 0
+    },
+    {
+      "name": "Sara Nasser",
+      "email": "sara.nasser@najah.edu",
+      "student_id": "2101234",
+      "major": "Computer Engineering",
+      "year": 4,
+      "role": "captain",
+      "teamIndex": 1
+    },
+    {
+      "name": "Khaled Yousef",
+      "email": "khaled.yousef@najah.edu",
+      "student_id": "2101235",
+      "major": "Computer Science",
+      "year": 3,
+      "role": "member",
+      "teamIndex": 1
+    },
+    {
+      "name": "Rania Hamed",
+      "email": "rania.hamed@najah.edu",
+      "student_id": "2101236",
+      "major": "Information Technology",
+      "year": 2,
+      "role": "member",
+      "teamIndex": 1
+    },
+    {
+      "name": "Zaid Qasem",
+      "email": "zaid.qasem@aqu.edu",
+      "student_id": "3101234",
+      "major": "Computer Science",
+      "year": 5,
+      "role": "captain",
+      "teamIndex": 2
+    },
+    {
+      "name": "Nour Salah",
+      "email": "nour.salah@aqu.edu",
+      "student_id": "3101235",
+      "major": "Software Engineering",
+      "year": 4,
+      "role": "member",
+      "teamIndex": 2
+    },
+    {
+      "name": "Amjad Faraj",
+      "email": "amjad.faraj@aqu.edu",
+      "student_id": "3101236",
+      "major": "Computer Engineering",
+      "year": 3,
+      "role": "member",
+      "teamIndex": 2
+    },
+    {
+      "name": "Dina Khalil",
+      "email": "dina.khalil@hebron.edu",
+      "student_id": "4101234",
+      "major": "Computer Science",
+      "year": 3,
+      "role": "captain",
+      "teamIndex": 3
+    },
+    {
+      "name": "Rami Odeh",
+      "email": "rami.odeh@hebron.edu",
+      "student_id": "4101235",
+      "major": "Information Systems",
+      "year": 2,
+      "role": "member",
+      "teamIndex": 3
+    },
+    {
+      "name": "Muna Darwish",
+      "email": "muna.darwish@hebron.edu",
+      "student_id": "4101236",
+      "major": "Software Engineering",
+      "year": 3,
+      "role": "member",
+      "teamIndex": 3
+    },
+    {
+      "name": "Ibrahim Sami",
+      "email": "ibrahim.sami@ppu.edu",
+      "student_id": "5101234",
+      "major": "Computer Systems Engineering",
+      "year": 4,
+      "role": "captain",
+      "teamIndex": 4
+    },
+    {
+      "name": "Hiba Abdallah",
+      "email": "hiba.abdallah@ppu.edu",
+      "student_id": "5101235",
+      "major": "Computer Science",
+      "year": 3,
+      "role": "member",
+      "teamIndex": 4
+    },
+    {
+      "name": "Marwan Salim",
+      "email": "marwan.salim@ppu.edu",
+      "student_id": "5101236",
+      "major": "Software Engineering",
+      "year": 2,
+      "role": "member",
+      "teamIndex": 4
+    }
+  ],
+  "contactMessages": [
+    {
+      "name": "Ali Rahman",
+      "email": "ali.rahman@example.com",
+      "subject": "Question about registration deadline",
+      "message": "Hello, I would like to know if the registration deadline can be extended for our team. We are still finalizing our team members. Thank you!",
+      "status": "new"
+    },
+    {
+      "name": "Huda Mustafa",
+      "email": "huda.mustafa@example.com",
+      "subject": "Competition venue information",
+      "message": "Could you please provide more details about the competition venue and accommodation options for teams coming from outside the city?",
+      "status": "read"
+    },
+    {
+      "name": "Tariq Saeed",
+      "email": "tariq.saeed@example.com",
+      "subject": "Sponsorship inquiry",
+      "message": "Our company is interested in sponsoring the ACPC event. Who should we contact regarding sponsorship opportunities?",
+      "status": "replied"
+    },
+    {
+      "name": "Samira Nabil",
+      "email": "samira.nabil@example.com",
+      "subject": "Past competition problems",
+      "message": "Is there a repository of past ACPC problems that teams can use for practice? It would be very helpful for our preparation.",
+      "status": "new"
+    },
+    {
+      "name": "Walid Hamdan",
+      "email": "walid.hamdan@example.com",
+      "subject": "Technical requirements",
+      "message": "What programming languages and development environments will be available during the competition?",
+      "status": "read"
+    }
+  ],
+  "volunteerApplications": [
+    {
+      "name": "Leena Ashour",
+      "email": "leena.ashour@example.com",
+      "phone": "+970-599-111222",
+      "team": "media",
+      "experience": "I have experience in social media management and content creation. I've worked on several university events and helped promote them through various social media channels.",
+      "availability": "Available all competition days (Friday-Sunday) and two days before for setup",
+      "motivation": "I'm passionate about competitive programming and want to help make this event successful by documenting and sharing the excitement with the community.",
+      "status": "approved"
+    },
+    {
+      "name": "Fadi Masri",
+      "email": "fadi.masri@example.com",
+      "phone": "+970-599-222333",
+      "team": "logistics",
+      "experience": "I have coordinated logistics for multiple university conferences with 200+ participants. Strong organizational skills and attention to detail.",
+      "availability": "Available for all preparation days and the competition weekend",
+      "motivation": "I love organizing events and ensuring everything runs smoothly. ACPC is a prestigious event and I'd be honored to contribute.",
+      "status": "approved"
+    },
+    {
+      "name": "Jana Qasim",
+      "email": "jana.qasim@example.com",
+      "phone": "+970-599-333444",
+      "team": "ops",
+      "experience": "Technical background in computer science. I've been a teaching assistant for programming courses and understand the technical needs of competitors.",
+      "availability": "Fully available during competition days",
+      "motivation": "I want to help create a smooth technical experience for all teams. Having participated in similar competitions, I understand what competitors need.",
+      "status": "pending"
+    },
+    {
+      "name": "Bashar Zahra",
+      "email": "bashar.zahra@example.com",
+      "phone": "+970-599-444555",
+      "team": "volunteers",
+      "experience": "General volunteer experience at various community events. Quick learner and team player.",
+      "availability": "Available on competition days, Saturday and Sunday",
+      "motivation": "I want to be part of this important academic event and support the talented students participating.",
+      "status": "pending"
+    },
+    {
+      "name": "Rana Fares",
+      "email": "rana.fares@example.com",
+      "phone": "+970-599-555666",
+      "team": "media",
+      "experience": "Photography and videography experience. I've covered several tech events and conferences. Have my own equipment.",
+      "availability": "Available all three competition days",
+      "motivation": "I want to capture the energy and passion of ACPC participants and create lasting memories of this event.",
+      "status": "rejected"
+    }
+  ]
+}
