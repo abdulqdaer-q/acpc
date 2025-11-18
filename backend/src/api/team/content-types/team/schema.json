@@ -52,6 +52,12 @@
       "relation": "oneToMany",
       "target": "api::team-member.team-member",
       "mappedBy": "team"
+    },
+    "contest_registrations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::contest-registration.contest-registration",
+      "mappedBy": "team"
     }
   }
 }

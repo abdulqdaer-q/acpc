@@ -296,5 +296,174 @@
       "motivation": "I want to capture the energy and passion of ACPC participants and create lasting memories of this event.",
       "status": "rejected"
     }
+  ],
+  "contests": [
+    {
+      "name": "Syrian Collegiate Programming Contest 2025",
+      "description": "The annual Syrian Collegiate Programming Contest brings together the brightest minds from universities across Syria to compete in algorithmic problem-solving.",
+      "start_date": "2025-03-15",
+      "end_date": "2025-03-17",
+      "is_active": true,
+      "registration_start": "2025-02-01T00:00:00.000Z",
+      "registration_end": "2025-03-10T23:59:59.000Z",
+      "max_teams": 50,
+      "location": "Damascus University - Faculty of Informatics Engineering"
+    }
+  ],
+  "scheduleEvents": [
+    {
+      "title": "Team Registration & Check-in",
+      "description": "Teams register on-site, receive competition materials, and set up their workstations",
+      "start_time": "2025-03-15T08:00:00.000Z",
+      "end_time": "2025-03-15T09:30:00.000Z",
+      "day": 1,
+      "location": "Main Hall",
+      "event_type": "registration",
+      "contestIndex": 0
+    },
+    {
+      "title": "Opening Ceremony",
+      "description": "Welcome speech, competition rules, and technical briefing",
+      "start_time": "2025-03-15T09:30:00.000Z",
+      "end_time": "2025-03-15T10:30:00.000Z",
+      "day": 1,
+      "location": "Auditorium",
+      "event_type": "opening",
+      "contestIndex": 0
+    },
+    {
+      "title": "Practice Session",
+      "description": "Teams familiarize themselves with the contest environment and submission system",
+      "start_time": "2025-03-15T10:45:00.000Z",
+      "end_time": "2025-03-15T12:00:00.000Z",
+      "day": 1,
+      "location": "Competition Lab",
+      "event_type": "contest",
+      "contestIndex": 0
+    },
+    {
+      "title": "Lunch Break",
+      "description": "Networking lunch for teams, coaches, and judges",
+      "start_time": "2025-03-15T12:00:00.000Z",
+      "end_time": "2025-03-15T13:30:00.000Z",
+      "day": 1,
+      "location": "Cafeteria",
+      "event_type": "lunch",
+      "contestIndex": 0
+    },
+    {
+      "title": "Contest Round 1",
+      "description": "First competitive programming round - 5 hours",
+      "start_time": "2025-03-15T14:00:00.000Z",
+      "end_time": "2025-03-15T19:00:00.000Z",
+      "day": 1,
+      "location": "Competition Lab",
+      "event_type": "contest",
+      "contestIndex": 0
+    },
+    {
+      "title": "Day 1 Wrap-up",
+      "description": "Brief standings review and announcements for Day 2",
+      "start_time": "2025-03-15T19:00:00.000Z",
+      "end_time": "2025-03-15T19:30:00.000Z",
+      "day": 1,
+      "location": "Main Hall",
+      "event_type": "other",
+      "contestIndex": 0
+    },
+    {
+      "title": "Team Arrival & Breakfast",
+      "description": "Light breakfast and workspace setup",
+      "start_time": "2025-03-16T08:00:00.000Z",
+      "end_time": "2025-03-16T09:00:00.000Z",
+      "day": 2,
+      "location": "Cafeteria",
+      "event_type": "other",
+      "contestIndex": 0
+    },
+    {
+      "title": "Contest Round 2",
+      "description": "Second competitive programming round - 5 hours",
+      "start_time": "2025-03-16T09:00:00.000Z",
+      "end_time": "2025-03-16T14:00:00.000Z",
+      "day": 2,
+      "location": "Competition Lab",
+      "event_type": "contest",
+      "contestIndex": 0
+    },
+    {
+      "title": "Lunch Break",
+      "description": "Catered lunch for all participants",
+      "start_time": "2025-03-16T14:00:00.000Z",
+      "end_time": "2025-03-16T15:30:00.000Z",
+      "day": 2,
+      "location": "Cafeteria",
+      "event_type": "lunch",
+      "contestIndex": 0
+    },
+    {
+      "title": "Workshop: Advanced Algorithms",
+      "description": "Guest speaker workshop on advanced competitive programming techniques",
+      "start_time": "2025-03-16T15:30:00.000Z",
+      "end_time": "2025-03-16T17:00:00.000Z",
+      "day": 2,
+      "location": "Auditorium",
+      "event_type": "other",
+      "contestIndex": 0
+    },
+    {
+      "title": "Final Round Preparation",
+      "description": "Teams prepare for the final round, coaches meeting",
+      "start_time": "2025-03-16T17:00:00.000Z",
+      "end_time": "2025-03-16T18:00:00.000Z",
+      "day": 2,
+      "location": "Main Hall",
+      "event_type": "other",
+      "contestIndex": 0
+    },
+    {
+      "title": "Final Round",
+      "description": "Championship round - Top teams compete for the grand prize",
+      "start_time": "2025-03-17T09:00:00.000Z",
+      "end_time": "2025-03-17T14:00:00.000Z",
+      "day": 3,
+      "location": "Competition Lab",
+      "event_type": "contest",
+      "contestIndex": 0
+    },
+    {
+      "title": "Lunch & Judging",
+      "description": "Final lunch while judges finalize results",
+      "start_time": "2025-03-17T14:00:00.000Z",
+      "end_time": "2025-03-17T15:30:00.000Z",
+      "day": 3,
+      "location": "Cafeteria",
+      "event_type": "lunch",
+      "contestIndex": 0
+    },
+    {
+      "title": "Closing Ceremony & Awards",
+      "description": "Results announcement, awards presentation, and closing remarks",
+      "start_time": "2025-03-17T15:30:00.000Z",
+      "end_time": "2025-03-17T17:00:00.000Z",
+      "day": 3,
+      "location": "Auditorium",
+      "event_type": "awards",
+      "contestIndex": 0
+    }
+  ],
+  "contestRegistrations": [
+    {
+      "contestIndex": 0,
+      "teamIndex": 0,
+      "registration_date": "2025-02-15T10:30:00.000Z",
+      "status": "approved"
+    },
+    {
+      "contestIndex": 0,
+      "teamIndex": 1,
+      "registration_date": "2025-02-20T14:15:00.000Z",
+      "status": "approved"
+    }
   ]
 }
