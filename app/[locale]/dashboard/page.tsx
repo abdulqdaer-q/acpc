@@ -197,6 +197,10 @@ export default function Dashboard() {
               <h3 className="font-semibold text-lg mb-2">{t('quickActions.practiceProblems.title')}</h3>
               <p className="text-sm">{t('quickActions.practiceProblems.description')}</p>
             </button>
+            <Link href={`/${locale}/guide`} className="bg-indigo-600 text-white p-4 rounded-lg hover:bg-indigo-700 transition text-left block">
+              <h3 className="font-semibold text-lg mb-2">Beginner's Guide</h3>
+              <p className="text-sm opacity-90">Learn how to practice and improve your competitive programming skills</p>
+            </Link>
           </div>
         </div>
 
