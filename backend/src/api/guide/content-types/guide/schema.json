@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "guide",
+  "info": {
+    "singularName": "guide",
+    "pluralName": "guides",
+    "displayName": "Beginner Guide",
+    "description": "Competitive Programming Beginner Guide"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "Beginner Competitive Programming Guide"
+    },
+    "content": {
+      "type": "json",
+      "required": true
+    }
+  }
+}

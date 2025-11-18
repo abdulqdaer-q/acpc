@@ -1,11 +1,95 @@
 'use client';
 
-import { beginnerGuideContent } from '@/lib/guide-content';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+
+interface GuideContent {
+  title: string;
+  introduction: {
+    heading: string;
+    content: string;
+  };
+  sections: Array<{
+    id: string;
+    heading: string;
+    content: string;
+    subsections?: Array<{
+      heading: string;
+      content: string;
+      list?: Array<{
+        title: string;
+        description: string;
+        link?: {
+          url: string;
+          text: string;
+        };
+      }> | null;
+    }>;
+  }>;
+  conclusion: {
+    heading: string;
+    content: string;
+  };
+}
 
 export default function GuidePage() {
   const router = useRouter();
-  const guide = beginnerGuideContent;
+  const [guide, setGuide] = useState<GuideContent | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    const fetchGuide = async () => {
+      try {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+        const response = await fetch(`${apiUrl}/api/guide`);
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch guide');
+        }
+
+        const data = await response.json();
+
+        if (data.data) {
+          setGuide({
+            title: data.data.title,
+            ...data.data.content
+          });
+        }
+      } catch (err: any) {
+        setError(err.message || 'Failed to load guide');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchGuide();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+        <div className="text-xl text-gray-700">Loading guide...</div>
+      </div>
+    );
+  }
+
+  if (error || !guide) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+        <div className="max-w-md bg-white rounded-xl shadow-lg p-8">
+          <h2 className="text-2xl font-bold text-red-600 mb-4">Error Loading Guide</h2>
+          <p className="text-gray-700">{error || 'Guide content not available'}</p>
+          <button
+            onClick={() => router.back()}
+            className="mt-4 px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+          >
+            Go Back
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
