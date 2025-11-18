@@ -52,7 +52,7 @@ export default function CreateTeamPage() {
         return;
       }
 
-      if (!currentUser.profile_completed) {
+      if (!currentUser.profileCompleted) {
         router.push(`/${locale}/profile/complete`);
         return;
       }
@@ -219,7 +219,7 @@ export default function CreateTeamPage() {
                   <option value="">-- Select a coach --</option>
                   {coaches.map((coach) => (
                     <option key={coach.id} value={coach.id}>
-                      {coach.full_name_arabic || coach.username} ({coach.email})
+                      {coach.fullNameArabic || coach.username} ({coach.email})
                     </option>
                   ))}
                 </select>

@@ -7,14 +7,14 @@ export interface User {
   provider?: string;
   confirmed?: boolean;
   blocked?: boolean;
-  full_name_arabic?: string;
-  birth_date?: string;
-  tshirt_size?: 'S' | 'M' | 'L' | 'XL' | 'XXL' | 'XXXL';
-  year_in_uni?: '1' | '2' | '3' | '4' | '5' | '6' | 'graduated';
+  fullNameArabic?: string;
+  birthDate?: string;
+  tshirtSize?: 'S' | 'M' | 'L' | 'XL' | 'XXL' | 'XXXL';
+  yearInUni?: '1' | '2' | '3' | '4' | '5' | '6' | 'graduated';
   faculty?: 'ITE' | 'CS' | 'Other';
-  uni_id?: string;
-  profile_completed?: boolean;
-  user_role?: 'user' | 'coach' | 'volunteer' | 'sponsor';
+  uniId?: string;
+  profileCompleted?: boolean;
+  userRole?: 'user' | 'coach' | 'volunteer' | 'sponsor';
   role?: any;
 }
 
@@ -63,12 +63,12 @@ export interface TeamData {
 }
 
 export interface ProfileData {
-  full_name_arabic: string;
-  birth_date: string;
-  tshirt_size: 'S' | 'M' | 'L' | 'XL' | 'XXL' | 'XXXL';
-  year_in_uni: '1' | '2' | '3' | '4' | '5' | '6' | 'graduated';
+  fullNameArabic: string;
+  birthDate: string;
+  tshirtSize: 'S' | 'M' | 'L' | 'XL' | 'XXL' | 'XXXL';
+  yearInUni: '1' | '2' | '3' | '4' | '5' | '6' | 'graduated';
   faculty: 'ITE' | 'CS' | 'Other';
-  uni_id?: string;
+  uniId?: string;
 }
 
 class APIClient {
@@ -226,7 +226,7 @@ class APIClient {
       user: user?.id, // Link to current user if they're a member
       name: member.name,
       email: member.email,
-      student_id: member.studentId,
+      studentId: member.studentId,
       year: member.year,
       major: member.major,
       role: 'member',
@@ -238,9 +238,9 @@ class APIClient {
         name: data.name,
         university: data.university,
         coach: data.coach, // Coach user ID
-        coach_name: data.coachName,
-        coach_email: data.coachEmail,
-        coach_phone: data.coachPhone,
+        coachName: data.coachName,
+        coachEmail: data.coachEmail,
+        coachPhone: data.coachPhone,
         members,
       }
     };
@@ -271,7 +271,7 @@ class APIClient {
         data: {
           name: member.name,
           email: member.email,
-          student_id: member.studentId,
+          studentId: member.studentId,
           year: member.year,
           major: member.major,
           role: 'member',

@@ -12,12 +12,12 @@ export default function CompleteProfilePage() {
   const [error, setError] = useState('');
 
   const [formData, setFormData] = useState({
-    full_name_arabic: '',
-    birth_date: '',
-    tshirt_size: 'M' as const,
-    year_in_uni: '1' as const,
+    fullNameArabic: '',
+    birthDate: '',
+    tshirtSize: 'M' as const,
+    yearInUni: '1' as const,
     faculty: 'CS' as const,
-    uni_id: '',
+    uniId: '',
   });
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function CompleteProfilePage() {
     // Check if profile is already completed
     const checkProfile = async () => {
       const user = await api.getCurrentUser();
-      if (user?.profile_completed) {
+      if (user?.profileCompleted) {
         router.push('/dashboard');
       }
     };
@@ -45,7 +45,7 @@ export default function CompleteProfilePage() {
 
     try {
       // Validate required fields
-      if (!formData.full_name_arabic || !formData.birth_date) {
+      if (!formData.fullNameArabic || !formData.birthDate) {
         setError('Please fill in all required fields');
         setLoading(false);
         return;
@@ -92,15 +92,15 @@ export default function CompleteProfilePage() {
           <div className="space-y-4">
             {/* Full Name in Arabic */}
             <div>
-              <label htmlFor="full_name_arabic" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="fullNameArabic" className="block text-sm font-medium text-gray-700">
                 Full Name (Arabic) *
               </label>
               <input
-                id="full_name_arabic"
-                name="full_name_arabic"
+                id="fullNameArabic"
+                name="fullNameArabic"
                 type="text"
                 required
-                value={formData.full_name_arabic}
+                value={formData.fullNameArabic}
                 onChange={handleChange}
                 className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="الاسم الكامل"
@@ -109,15 +109,15 @@ export default function CompleteProfilePage() {
 
             {/* Birth Date */}
             <div>
-              <label htmlFor="birth_date" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="birthDate" className="block text-sm font-medium text-gray-700">
                 Birth Date *
               </label>
               <input
-                id="birth_date"
-                name="birth_date"
+                id="birthDate"
+                name="birthDate"
                 type="date"
                 required
-                value={formData.birth_date}
+                value={formData.birthDate}
                 onChange={handleChange}
                 className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
               />
@@ -125,14 +125,14 @@ export default function CompleteProfilePage() {
 
             {/* T-Shirt Size */}
             <div>
-              <label htmlFor="tshirt_size" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="tshirtSize" className="block text-sm font-medium text-gray-700">
                 T-Shirt Size *
               </label>
               <select
-                id="tshirt_size"
-                name="tshirt_size"
+                id="tshirtSize"
+                name="tshirtSize"
                 required
-                value={formData.tshirt_size}
+                value={formData.tshirtSize}
                 onChange={handleChange}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               >
@@ -147,14 +147,14 @@ export default function CompleteProfilePage() {
 
             {/* Year in University */}
             <div>
-              <label htmlFor="year_in_uni" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="yearInUni" className="block text-sm font-medium text-gray-700">
                 Year in University *
               </label>
               <select
-                id="year_in_uni"
-                name="year_in_uni"
+                id="yearInUni"
+                name="yearInUni"
                 required
-                value={formData.year_in_uni}
+                value={formData.yearInUni}
                 onChange={handleChange}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               >
@@ -189,14 +189,14 @@ export default function CompleteProfilePage() {
 
             {/* University ID (Optional) */}
             <div>
-              <label htmlFor="uni_id" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="uniId" className="block text-sm font-medium text-gray-700">
                 University ID (Optional)
               </label>
               <input
-                id="uni_id"
-                name="uni_id"
+                id="uniId"
+                name="uniId"
                 type="text"
-                value={formData.uni_id}
+                value={formData.uniId}
                 onChange={handleChange}
                 className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Enter your university ID"
