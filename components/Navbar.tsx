@@ -24,14 +24,6 @@ export default function Navbar() {
                 height={60}
                 className="h-12 w-auto"
               />
-              <Image
-                src="/images/logos/aleppo-university.svg"
-                alt="Aleppo University Logo"
-                width={48}
-                height={48}
-                className="h-12 w-auto"
-              />
-              <span className="text-xl font-bold text-primary-600 hidden lg:block">{t('common.acpc')}</span>
             </Link>
           </div>
 

@@ -477,31 +477,40 @@ export interface ApiTeamMemberTeamMember extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    birth_date: Schema.Attribute.Date;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    email: Schema.Attribute.Email;
+    faculty: Schema.Attribute.Enumeration<['ITE', 'CS', 'Other']>;
+    full_name_arabic: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::team-member.team-member'
     > &
       Schema.Attribute.Private;
-    major: Schema.Attribute.String & Schema.Attribute.Required;
-    name: Schema.Attribute.String & Schema.Attribute.Required;
+    major: Schema.Attribute.String;
+    name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     role: Schema.Attribute.Enumeration<['member', 'captain']> &
       Schema.Attribute.DefaultTo<'member'>;
-    student_id: Schema.Attribute.String & Schema.Attribute.Required;
+    student_id: Schema.Attribute.String;
     team: Schema.Attribute.Relation<'manyToOne', 'api::team.team'>;
+    tshirt_size: Schema.Attribute.Enumeration<
+      ['S', 'M', 'L', 'XL', 'XXL', 'XXXL']
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    user: Schema.Attribute.Relation<
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
     year: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
-          max: 5;
+          max: 6;
           min: 1;
         },
         number
@@ -521,9 +530,13 @@ export interface ApiTeamTeam extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    coach_email: Schema.Attribute.Email & Schema.Attribute.Required;
-    coach_name: Schema.Attribute.String & Schema.Attribute.Required;
-    coach_phone: Schema.Attribute.String & Schema.Attribute.Required;
+    coach: Schema.Attribute.Relation<
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    coach_email: Schema.Attribute.Email;
+    coach_name: Schema.Attribute.String;
+    coach_phone: Schema.Attribute.String;
     created_by_user: Schema.Attribute.Relation<
       'manyToOne',
       'plugin::users-permissions.user'
@@ -1049,9 +1062,9 @@ export interface PluginUsersPermissionsUser
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
+    birth_date: Schema.Attribute.Date;
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     confirmationToken: Schema.Attribute.String & Schema.Attribute.Private;
     confirmed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -1063,6 +1076,8 @@ export interface PluginUsersPermissionsUser
       Schema.Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
+    faculty: Schema.Attribute.Enumeration<['ITE', 'CS', 'Other']>;
+    full_name_arabic: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1074,6 +1089,9 @@ export interface PluginUsersPermissionsUser
       Schema.Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
+    profile_completed: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
     provider: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     resetPasswordToken: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1081,15 +1099,27 @@ export interface PluginUsersPermissionsUser
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    tshirt_size: Schema.Attribute.Enumeration<
+      ['S', 'M', 'L', 'XL', 'XXL', 'XXXL']
+    >;
+    uni_id: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    user_role: Schema.Attribute.Enumeration<
+      ['user', 'coach', 'volunteer', 'sponsor']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'user'>;
     username: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 3;
       }>;
+    year_in_uni: Schema.Attribute.Enumeration<
+      ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'graduated']
+    >;
   };
 }
 

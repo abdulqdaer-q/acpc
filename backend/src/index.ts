@@ -47,5 +47,39 @@ export default {
         });
       }
     }
+
+    // Set up permissions for custom user routes
+    const authenticatedRole = await strapi.query('plugin::users-permissions.role').findOne({
+      where: { type: 'authenticated' },
+    });
+
+    const authenticatedPermissions = await strapi
+      .query('plugin::users-permissions.permission')
+      .findMany({
+        where: {
+          role: {
+            type: 'authenticated',
+          },
+        },
+      });
+
+    // Enable authenticated user actions
+    const authenticatedActions = [
+      'plugin::users-permissions.user.updateProfile',
+      'plugin::users-permissions.user.getMe',
+    ];
+
+    for (const action of authenticatedActions) {
+      const permission = authenticatedPermissions.find(
+        (p) => p.action === action
+      );
+
+      if (permission && !permission.enabled) {
+        await strapi.query('plugin::users-permissions.permission').update({
+          where: { id: permission.id },
+          data: { enabled: true },
+        });
+      }
+    }
   },
 };
