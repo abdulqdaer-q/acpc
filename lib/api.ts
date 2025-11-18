@@ -204,9 +204,15 @@ class APIClient {
 
   // Volunteer Methods
   async submitVolunteerApplication(data: VolunteerApplicationData): Promise<any> {
+    const user = await this.getCurrentUser();
     return this.request('/api/volunteer-applications', {
       method: 'POST',
-      body: JSON.stringify({ data }),
+      body: JSON.stringify({
+        data: {
+          ...data,
+          user: user?.id,
+        }
+      }),
     });
   }
 
@@ -215,6 +221,19 @@ class APIClient {
     if (!user) return { data: [] };
 
     return this.request(`/api/volunteer-applications?filters[user][id][$eq]=${user.id}&populate=*`);
+  }
+
+  async updateVolunteerApplication(id: number, data: Partial<VolunteerApplicationData>): Promise<any> {
+    return this.request(`/api/volunteer-applications/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify({ data }),
+    });
+  }
+
+  async deleteVolunteerApplication(id: number): Promise<any> {
+    return this.request(`/api/volunteer-applications/${id}`, {
+      method: 'DELETE',
+    });
   }
 
   // Team Methods

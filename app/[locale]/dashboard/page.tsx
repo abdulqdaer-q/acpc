@@ -201,6 +201,10 @@ export default function Dashboard() {
               <h3 className="font-semibold text-lg mb-2">Beginner's Guide</h3>
               <p className="text-sm opacity-90">Learn how to practice and improve your competitive programming skills</p>
             </Link>
+            <Link href={`/${locale}/volunteer/apply`} className="bg-purple-600 text-white p-4 rounded-lg hover:bg-purple-700 transition text-left block">
+              <h3 className="font-semibold text-lg mb-2">Volunteer Application</h3>
+              <p className="text-sm opacity-90">Apply to join our volunteer team and help make the competition a success</p>
+            </Link>
           </div>
         </div>
 

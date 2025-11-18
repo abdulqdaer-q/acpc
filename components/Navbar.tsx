@@ -111,6 +111,13 @@ export default function Navbar() {
                         >
                           {t('nav.profile')}
                         </Link>
+                        <Link
+                          href={`/${locale}/volunteer/my-applications`}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition"
+                          onClick={() => setIsProfileOpen(false)}
+                        >
+                          My Volunteer Applications
+                        </Link>
                         <button
                           onClick={async () => {
                             await api.logout();

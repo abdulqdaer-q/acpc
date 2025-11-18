@@ -511,5 +511,105 @@
         ]
       }
     }
+  },
+  "volunteerApplication": {
+    "title": "طلب تطوع",
+    "subtitle": "انضم إلى فريقنا وكن جزءاً من النجاح",
+    "loading": "جارٍ التحميل...",
+    "success": "تم إرسال الطلب بنجاح! جارٍ التحويل...",
+    "form": {
+      "name": {
+        "label": "الاسم الكامل",
+        "placeholder": "أدخل اسمك الكامل"
+      },
+      "email": {
+        "label": "البريد الإلكتروني",
+        "placeholder": "your.email@example.com"
+      },
+      "phone": {
+        "label": "رقم الهاتف",
+        "placeholder": "+963 XXX XXX XXX"
+      },
+      "team": {
+        "label": "الفريق المفضل",
+        "placeholder": "اختر فريقاً",
+        "options": {
+          "media": "فريق الميديا",
+          "logistics": "فريق اللوجستيك",
+          "ops": "فريق العمليات",
+          "volunteers": "فريق المتطوعين"
+        }
+      },
+      "experience": {
+        "label": "الخبرة السابقة",
+        "placeholder": "أخبرنا عن أي خبرة ذات صلة لديك..."
+      },
+      "availability": {
+        "label": "التفرغ",
+        "placeholder": "متى أنت متاح؟ (مثال: أيام الأسبوع، عطل نهاية الأسبوع، تواريخ محددة...)"
+      },
+      "motivation": {
+        "label": "لماذا تريد التطوع؟",
+        "placeholder": "أخبرنا ما الذي يحفزك للانضمام إلى فريقنا..."
+      },
+      "viewApplications": "عرض طلباتي",
+      "submit": "إرسال الطلب",
+      "submitting": "جارٍ الإرسال..."
+    },
+    "errors": {
+      "allFieldsRequired": "جميع الحقول مطلوبة",
+      "submitFailed": "فشل إرسال الطلب. يرجى المحاولة مرة أخرى."
+    }
+  },
+  "myApplications": {
+    "title": "طلبات التطوع الخاصة بي",
+    "subtitle": "عرض وإدارة طلبات التطوع الخاصة بك",
+    "loading": "جارٍ التحميل...",
+    "newApplication": "طلب جديد",
+    "noApplications": "لم تقم بإرسال أي طلبات تطوع بعد.",
+    "submitFirst": "أرسل طلبك الأول",
+    "editApplication": "تعديل الطلب",
+    "confirmDelete": "هل أنت متأكد من حذف هذا الطلب؟",
+    "approvedMessage": "تم قبول طلبك!",
+    "rejectedMessage": "لم يتم قبول طلبك هذه المرة.",
+    "status": {
+      "pending": "قيد الانتظار",
+      "approved": "مقبول",
+      "rejected": "مرفوض"
+    },
+    "teams": {
+      "media": "فريق الميديا",
+      "logistics": "فريق اللوجستيك",
+      "ops": "فريق العمليات",
+      "volunteers": "فريق المتطوعين"
+    },
+    "details": {
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "experience": "الخبرة",
+      "availability": "التفرغ",
+      "motivation": "الدافع",
+      "submitted": "تاريخ الإرسال"
+    },
+    "form": {
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "team": "الفريق",
+      "experience": "الخبرة",
+      "availability": "التفرغ",
+      "motivation": "الدافع"
+    },
+    "actions": {
+      "edit": "تعديل",
+      "delete": "حذف",
+      "save": "حفظ التغييرات",
+      "cancel": "إلغاء"
+    },
+    "errors": {
+      "loadFailed": "فشل تحميل الطلبات",
+      "updateFailed": "فشل تحديث الطلب",
+      "deleteFailed": "فشل حذف الطلب"
+    }
   }
 }

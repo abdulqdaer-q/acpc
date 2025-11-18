@@ -67,6 +67,10 @@ export default {
     const authenticatedActions = [
       'plugin::users-permissions.user.updateProfile',
       'plugin::users-permissions.user.getMe',
+      'api::volunteer-application.volunteer-application.find',
+      'api::volunteer-application.volunteer-application.findOne',
+      'api::volunteer-application.volunteer-application.update',
+      'api::volunteer-application.volunteer-application.delete',
     ];
 
     for (const action of authenticatedActions) {
