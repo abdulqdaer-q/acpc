@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contests",
+  "info": {
+    "singularName": "contest",
+    "pluralName": "contests",
+    "displayName": "Contest",
+    "description": "Programming contests"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "start_date": {
+      "type": "date",
+      "required": true
+    },
+    "end_date": {
+      "type": "date",
+      "required": true
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "registration_start": {
+      "type": "datetime"
+    },
+    "registration_end": {
+      "type": "datetime"
+    },
+    "max_teams": {
+      "type": "integer",
+      "min": 1
+    },
+    "location": {
+      "type": "string"
+    },
+    "contest_registrations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::contest-registration.contest-registration",
+      "mappedBy": "contest"
+    },
+    "schedule_events": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::schedule-event.schedule-event",
+      "mappedBy": "contest"
+    }
+  }
+}

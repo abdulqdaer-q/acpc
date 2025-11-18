@@ -43,6 +43,33 @@ interface SeedData {
     motivation: string;
     status: string;
   }>;
+  contests: Array<{
+    name: string;
+    description: string;
+    start_date: string;
+    end_date: string;
+    is_active: boolean;
+    registration_start: string;
+    registration_end: string;
+    max_teams: number;
+    location: string;
+  }>;
+  scheduleEvents: Array<{
+    title: string;
+    description: string;
+    start_time: string;
+    end_time?: string;
+    day: number;
+    location: string;
+    event_type: string;
+    contestIndex: number;
+  }>;
+  contestRegistrations: Array<{
+    contestIndex: number;
+    teamIndex: number;
+    registration_date: string;
+    status: string;
+  }>;
 }
 
 async function seedDatabase() {
@@ -68,8 +95,11 @@ async function seedDatabase() {
     console.log('🧹 Clearing existing data...');
 
     // Delete in correct order (respecting foreign key constraints)
+    await strapi.db.query('api::contest-registration.contest-registration').deleteMany({});
+    await strapi.db.query('api::schedule-event.schedule-event').deleteMany({});
     await strapi.db.query('api::team-member.team-member').deleteMany({});
     await strapi.db.query('api::team.team').deleteMany({});
+    await strapi.db.query('api::contest.contest').deleteMany({});
     await strapi.db.query('api::contact-message.contact-message').deleteMany({});
     await strapi.db.query('api::volunteer-application.volunteer-application').deleteMany({});
     await strapi.db.query('plugin::users-permissions.user').deleteMany({
@@ -202,6 +232,85 @@ async function seedDatabase() {
     }
     console.log(`✅ Seeded ${createdApplicationsCount} volunteer applications\n`);
 
+    // Seed Contests
+    console.log('🏆 Seeding contests...');
+    const createdContests = [];
+    for (const contest of seedData.contests) {
+      try {
+        const createdContest = await strapi.db.query('api::contest.contest').create({
+          data: {
+            name: contest.name,
+            description: contest.description,
+            start_date: contest.start_date,
+            end_date: contest.end_date,
+            is_active: contest.is_active,
+            registration_start: contest.registration_start,
+            registration_end: contest.registration_end,
+            max_teams: contest.max_teams,
+            location: contest.location,
+          },
+        });
+        createdContests.push(createdContest);
+        console.log(`  ✓ Created contest: ${contest.name}`);
+      } catch (error: any) {
+        console.error(`  ✗ Error creating contest ${contest.name}:`, error.message);
+      }
+    }
+    console.log(`✅ Seeded ${createdContests.length} contests\n`);
+
+    // Seed Schedule Events
+    console.log('📅 Seeding schedule events...');
+    let createdEventsCount = 0;
+    for (const event of seedData.scheduleEvents) {
+      try {
+        const contest = createdContests[event.contestIndex];
+        if (contest) {
+          await strapi.db.query('api::schedule-event.schedule-event').create({
+            data: {
+              title: event.title,
+              description: event.description,
+              start_time: event.start_time,
+              end_time: event.end_time,
+              day: event.day,
+              location: event.location,
+              event_type: event.event_type,
+              contest: contest.id,
+            },
+          });
+          createdEventsCount++;
+          console.log(`  ✓ Created event: ${event.title} (Day ${event.day})`);
+        }
+      } catch (error: any) {
+        console.error(`  ✗ Error creating event ${event.title}:`, error.message);
+      }
+    }
+    console.log(`✅ Seeded ${createdEventsCount} schedule events\n`);
+
+    // Seed Contest Registrations
+    console.log('📝 Seeding contest registrations...');
+    let createdRegistrationsCount = 0;
+    for (const registration of seedData.contestRegistrations) {
+      try {
+        const contest = createdContests[registration.contestIndex];
+        const team = createdTeams[registration.teamIndex];
+        if (contest && team) {
+          await strapi.db.query('api::contest-registration.contest-registration').create({
+            data: {
+              contest: contest.id,
+              team: team.id,
+              registration_date: registration.registration_date,
+              status: registration.status,
+            },
+          });
+          createdRegistrationsCount++;
+          console.log(`  ✓ Created registration: ${team.name} for ${contest.name}`);
+        }
+      } catch (error: any) {
+        console.error(`  ✗ Error creating registration:`, error.message);
+      }
+    }
+    console.log(`✅ Seeded ${createdRegistrationsCount} contest registrations\n`);
+
     console.log('🎉 Database seeding completed successfully!\n');
     console.log('📊 Summary:');
     console.log(`   • Users: ${createdUsers.length}`);
@@ -209,6 +318,9 @@ async function seedDatabase() {
     console.log(`   • Team Members: ${createdMembersCount}`);
     console.log(`   • Contact Messages: ${createdMessagesCount}`);
     console.log(`   • Volunteer Applications: ${createdApplicationsCount}`);
+    console.log(`   • Contests: ${createdContests.length}`);
+    console.log(`   • Schedule Events: ${createdEventsCount}`);
+    console.log(`   • Contest Registrations: ${createdRegistrationsCount}`);
 
   } catch (error) {
     console.error('❌ Error during seeding:', error);

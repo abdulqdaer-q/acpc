@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "schedule_events",
+  "info": {
+    "singularName": "schedule-event",
+    "pluralName": "schedule-events",
+    "displayName": "Schedule Event",
+    "description": "Events in contest schedule"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "start_time": {
+      "type": "datetime",
+      "required": true
+    },
+    "end_time": {
+      "type": "datetime"
+    },
+    "day": {
+      "type": "integer",
+      "required": true,
+      "min": 1,
+      "max": 4
+    },
+    "location": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "enumeration",
+      "enum": ["registration", "opening", "contest", "break", "lunch", "closing", "awards", "other"],
+      "default": "other"
+    },
+    "contest": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contest.contest",
+      "inversedBy": "schedule_events"
+    }
+  }
+}

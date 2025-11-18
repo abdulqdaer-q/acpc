@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contest_registrations",
+  "info": {
+    "singularName": "contest-registration",
+    "pluralName": "contest-registrations",
+    "displayName": "Contest Registration",
+    "description": "Team registrations for contests"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "contest": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contest.contest",
+      "inversedBy": "contest_registrations"
+    },
+    "team": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::team.team",
+      "inversedBy": "contest_registrations"
+    },
+    "registration_date": {
+      "type": "datetime",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["pending", "approved", "rejected", "withdrawn"],
+      "default": "pending"
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}

@@ -149,8 +149,8 @@ class APIClient {
 
   async getCurrentUser(): Promise<User | null> {
     try {
-      const response = await this.request<{ user: User }>('/api/users/me');
-      return response.user;
+      const user = await this.request<User>('/api/users/me');
+      return user;
     } catch (error) {
       this.removeToken();
       return null;

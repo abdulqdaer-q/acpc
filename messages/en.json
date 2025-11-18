@@ -14,7 +14,9 @@
     "contact": "Contact",
     "login": "Login",
     "register": "Register",
-    "logout": "Logout"
+    "logout": "Logout",
+    "dashboard": "Dashboard",
+    "profile": "Profile"
   },
   "hero": {
     "title": "Aleppo Competitive",

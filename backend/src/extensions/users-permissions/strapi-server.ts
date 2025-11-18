@@ -12,12 +12,19 @@ export default (plugin) => {
     },
   };
 
-  // Add custom controllers
-  plugin.controllers.auth = {
-    ...plugin.controllers.auth,
-    ...authControllers,
+  // Store reference to the original auth controller factory
+  const originalAuthController = plugin.controllers.auth;
+
+  // Replace the auth controller with a new factory that merges original and custom methods
+  plugin.controllers.auth = (params) => {
+    const originalMethods = originalAuthController(params);
+    return {
+      ...originalMethods,
+      ...authControllers,
+    };
   };
 
+  // User controller is a plain object, not a factory function, so we can merge directly
   plugin.controllers.user = {
     ...plugin.controllers.user,
     ...userControllers,

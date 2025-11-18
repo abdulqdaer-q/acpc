@@ -80,7 +80,7 @@
     },
     "year_in_uni": {
       "type": "enumeration",
-      "enum": ["1", "2", "3", "4", "5", "6", "graduated"],
+      "enum": ["first", "second", "third", "fourth", "fifth", "sixth", "graduated"],
       "required": false
     },
     "faculty": {
