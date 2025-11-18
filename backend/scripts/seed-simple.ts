@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import Database from 'better-sqlite3';
-import crypto from 'crypto';
+import bcrypt from 'bcryptjs';
 
 interface SeedData {
   users: Array<{
@@ -48,8 +48,8 @@ interface SeedData {
 }
 
 function hashPassword(password: string): string {
-  // Simple hash for demo purposes - in real Strapi this is handled by bcrypt
-  return crypto.createHash('sha256').update(password).digest('hex');
+  // Use bcrypt to match Strapi's password hashing
+  return bcrypt.hashSync(password, 10);
 }
 
 async function seedDatabase() {
@@ -92,12 +92,14 @@ async function seedDatabase() {
     }
 
     // Clear only if tables exist
+    if (tableNames.includes('team_members_team_lnk')) db.exec('DELETE FROM team_members_team_lnk');
     if (tableNames.includes('team_members')) db.exec('DELETE FROM team_members');
     if (tableNames.includes('teams_created_by_user_lnk')) db.exec('DELETE FROM teams_created_by_user_lnk');
     if (tableNames.includes('teams')) db.exec('DELETE FROM teams');
     if (tableNames.includes('contact_messages')) db.exec('DELETE FROM contact_messages');
     if (tableNames.includes('volunteer_applications_user_lnk')) db.exec('DELETE FROM volunteer_applications_user_lnk');
     if (tableNames.includes('volunteer_applications')) db.exec('DELETE FROM volunteer_applications');
+    if (tableNames.includes('up_users_role_lnk')) db.exec('DELETE FROM up_users_role_lnk');
     if (tableNames.includes('up_users')) db.exec('DELETE FROM up_users');
     console.log('✅ Existing data cleared\n');
 
@@ -108,6 +110,11 @@ async function seedDatabase() {
         username, email, provider, password, confirmed, blocked,
         created_at, updated_at, published_at, created_by_id, updated_by_id, locale
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `);
+
+    const insertUserRole = db.prepare(`
+      INSERT INTO up_users_role_lnk (user_id, role_id)
+      VALUES (?, ?)
     `);
 
     const createdUsers: number[] = [];
@@ -126,8 +133,13 @@ async function seedDatabase() {
         null,
         'en'
       );
-      createdUsers.push(Number(result.lastInsertRowid));
-      console.log(`  ✓ Created user: ${user.username} (ID: ${result.lastInsertRowid})`);
+      const userId = Number(result.lastInsertRowid);
+      createdUsers.push(userId);
+
+      // Link user to "Authenticated" role (id: 1)
+      insertUserRole.run(userId, 1);
+
+      console.log(`  ✓ Created user: ${user.username} (ID: ${userId})`);
     }
     console.log(`✅ Seeded ${createdUsers.length} users\n`);
 
@@ -141,8 +153,8 @@ async function seedDatabase() {
     `);
 
     const insertTeamUserLink = db.prepare(`
-      INSERT INTO teams_created_by_user_lnk (team_id, user_id, team_ord)
-      VALUES (?, ?, ?)
+      INSERT INTO teams_created_by_user_lnk (team_id, user_id)
+      VALUES (?, ?)
     `);
 
     const createdTeams: number[] = [];
@@ -167,7 +179,7 @@ async function seedDatabase() {
 
       // Link team to user
       if (createdUsers[i]) {
-        insertTeamUserLink.run(teamId, createdUsers[i], 1);
+        insertTeamUserLink.run(teamId, createdUsers[i]);
       }
 
       console.log(`  ✓ Created team: ${team.name} (ID: ${teamId})`);
@@ -178,13 +190,19 @@ async function seedDatabase() {
     console.log('👨‍💻 Seeding team members...');
     const insertMember = db.prepare(`
       INSERT INTO team_members (
-        name, email, student_id, major, year, role, team_id,
+        name, email, student_id, major, year, role,
         created_at, updated_at, published_at, created_by_id, updated_by_id, locale
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `);
+
+    const insertMemberTeamLink = db.prepare(`
+      INSERT INTO team_members_team_lnk (team_member_id, team_id, team_member_ord)
+      VALUES (?, ?, ?)
     `);
 
     let createdMembersCount = 0;
-    for (const member of seedData.teamMembers) {
+    for (let i = 0; i < seedData.teamMembers.length; i++) {
+      const member = seedData.teamMembers[i];
       const teamId = createdTeams[member.teamIndex];
       if (teamId) {
         const result = insertMember.run(
@@ -194,7 +212,6 @@ async function seedDatabase() {
           member.major,
           member.year,
           member.role,
-          teamId,
           timestamp,
           timestamp,
           timestamp,
@@ -202,8 +219,13 @@ async function seedDatabase() {
           null,
           'en'
         );
+        const memberId = Number(result.lastInsertRowid);
+
+        // Link team member to team
+        insertMemberTeamLink.run(memberId, teamId, i + 1);
+
         createdMembersCount++;
-        console.log(`  ✓ Created team member: ${member.name} (ID: ${result.lastInsertRowid})`);
+        console.log(`  ✓ Created team member: ${member.name} (ID: ${memberId})`);
       }
     }
     console.log(`✅ Seeded ${createdMembersCount} team members\n`);
@@ -247,8 +269,8 @@ async function seedDatabase() {
     `);
 
     const insertAppUserLink = db.prepare(`
-      INSERT INTO volunteer_applications_user_lnk (volunteer_application_id, user_id, volunteer_application_ord)
-      VALUES (?, ?, ?)
+      INSERT INTO volunteer_applications_user_lnk (volunteer_application_id, user_id)
+      VALUES (?, ?)
     `);
 
     let createdApplicationsCount = 0;
@@ -274,7 +296,7 @@ async function seedDatabase() {
 
       // Link to volunteer user (last user)
       if (createdUsers[3]) {
-        insertAppUserLink.run(appId, createdUsers[3], 1);
+        insertAppUserLink.run(appId, createdUsers[3]);
       }
 
       console.log(`  ✓ Created volunteer application: ${application.name} (ID: ${appId})`);
