@@ -12,8 +12,8 @@ This guide explains how to seed the Strapi backend with sample data.
 
 The seed data is located in `/backend/data/seed-data.json` and includes:
 
-- **5 Users** - Sample coach and volunteer accounts
-- **5 Teams** - Teams from Palestinian universities (Birzeit, An-Najah, Al-Quds, Hebron, PPU)
+- **4 Users** - Sample coach and volunteer accounts
+- **5 Teams** - Teams from Syrian universities (Damascus, Aleppo, Tishreen, Al-Baath, Kalamoon)
 - **15 Team Members** - 3 members per team with different roles
 - **5 Contact Messages** - Sample inquiries with different statuses
 - **5 Volunteer Applications** - Applications for different volunteer teams
@@ -68,18 +68,18 @@ The seed script (`scripts/seed-simple.ts`) uses:
 ## Sample Data Details
 
 ### Users
-- coach_birzeit@birzeit.edu
-- coach_najah@najah.edu
-- coach_aqu@aqu.edu
+- coach@damascus.edu.sy
+- coach@aleppo.edu.sy
+- coach@tishreen.edu.sy
 - volunteer@example.com
 - (All passwords: `Password123!`)
 
 ### Teams
-- Birzeit Coders (approved)
-- An-Najah Algorithms (approved)
-- Al-Quds Innovators (pending)
-- Hebron Tech Stars (approved)
-- Palestine Polytechnic (rejected)
+- Damascus Coders (approved)
+- Aleppo Algorithms (approved)
+- Tishreen Innovators (pending)
+- Al-Baath Tech Stars (approved)
+- Kalamoon Developers (rejected)
 
 ### Team Members
 Each team has 3 members with one captain and two regular members.
