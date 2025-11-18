@@ -12,27 +12,50 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    },
     "name": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "email": {
       "type": "email",
-      "required": true
+      "required": false
     },
     "student_id": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "major": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "year": {
       "type": "integer",
-      "required": true,
+      "required": false,
       "min": 1,
-      "max": 5
+      "max": 6
+    },
+    "full_name_arabic": {
+      "type": "string",
+      "required": false
+    },
+    "birth_date": {
+      "type": "date",
+      "required": false
+    },
+    "tshirt_size": {
+      "type": "enumeration",
+      "enum": ["S", "M", "L", "XL", "XXL", "XXXL"],
+      "required": false
+    },
+    "faculty": {
+      "type": "enumeration",
+      "enum": ["ITE", "CS", "Other"],
+      "required": false
     },
     "role": {
       "type": "enumeration",

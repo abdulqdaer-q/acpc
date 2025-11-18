@@ -20,17 +20,22 @@
       "type": "string",
       "required": true
     },
+    "coach": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    },
     "coach_name": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "coach_email": {
       "type": "email",
-      "required": true
+      "required": false
     },
     "coach_phone": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "status": {
       "type": "enumeration",

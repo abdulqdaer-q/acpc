@@ -7,6 +7,15 @@ export interface User {
   provider?: string;
   confirmed?: boolean;
   blocked?: boolean;
+  full_name_arabic?: string;
+  birth_date?: string;
+  tshirt_size?: 'S' | 'M' | 'L' | 'XL' | 'XXL' | 'XXXL';
+  year_in_uni?: '1' | '2' | '3' | '4' | '5' | '6' | 'graduated';
+  faculty?: 'ITE' | 'CS' | 'Other';
+  uni_id?: string;
+  profile_completed?: boolean;
+  user_role?: 'user' | 'coach' | 'volunteer' | 'sponsor';
+  role?: any;
 }
 
 export interface AuthResponse {
@@ -50,6 +59,16 @@ export interface TeamData {
   coachEmail: string;
   coachPhone: string;
   members: TeamMemberData[];
+  coach?: number; // Coach user ID
+}
+
+export interface ProfileData {
+  full_name_arabic: string;
+  birth_date: string;
+  tshirt_size: 'S' | 'M' | 'L' | 'XL' | 'XXL' | 'XXXL';
+  year_in_uni: '1' | '2' | '3' | '4' | '5' | '6' | 'graduated';
+  faculty: 'ITE' | 'CS' | 'Other';
+  uni_id?: string;
 }
 
 class APIClient {
@@ -130,12 +149,41 @@ class APIClient {
 
   async getCurrentUser(): Promise<User | null> {
     try {
-      const data = await this.request<User>('/api/users/me');
-      return data;
+      const response = await this.request<{ user: User }>('/api/users/me');
+      return response.user;
     } catch (error) {
       this.removeToken();
       return null;
     }
+  }
+
+  async updateProfile(data: ProfileData): Promise<{ user: User }> {
+    return this.request('/api/users/profile', {
+      method: 'PUT',
+      body: JSON.stringify(data),
+    });
+  }
+
+  async getCoaches(): Promise<{ data: User[] }> {
+    return this.request('/api/users/coaches');
+  }
+
+  async registerVolunteer(
+    email: string,
+    password: string,
+    fullName?: string
+  ): Promise<AuthResponse> {
+    const data = await this.request<AuthResponse>('/api/auth/local/register-volunteer', {
+      method: 'POST',
+      body: JSON.stringify({
+        username: email.split('@')[0],
+        email,
+        password
+      }),
+    });
+
+    this.setToken(data.jwt);
+    return data;
   }
 
   async logout(): Promise<void> {
@@ -173,51 +221,38 @@ class APIClient {
   async createTeam(data: TeamData): Promise<any> {
     const user = await this.getCurrentUser();
 
-    // First create the team
+    // Prepare team members with user profile data
+    const members = data.members.map(member => ({
+      user: user?.id, // Link to current user if they're a member
+      name: member.name,
+      email: member.email,
+      student_id: member.studentId,
+      year: member.year,
+      major: member.major,
+      role: 'member',
+    }));
+
+    // Create team with members in one request (validated on backend)
     const teamPayload = {
       data: {
         name: data.name,
         university: data.university,
+        coach: data.coach, // Coach user ID
         coach_name: data.coachName,
         coach_email: data.coachEmail,
         coach_phone: data.coachPhone,
-        created_by_user: user?.id,
-        status: 'pending'
+        members,
       }
     };
 
-    const teamResponse = await this.request<{ data: any }>('/api/teams', {
+    return this.request<{ data: any }>('/api/teams', {
       method: 'POST',
       body: JSON.stringify(teamPayload),
     });
-
-    // Then create team members
-    const teamId = teamResponse.data.id;
-    for (const member of data.members) {
-      await this.request('/api/team-members', {
-        method: 'POST',
-        body: JSON.stringify({
-          data: {
-            name: member.name,
-            email: member.email,
-            student_id: member.studentId,
-            year: member.year,
-            major: member.major,
-            role: 'member',
-            team: teamId
-          }
-        }),
-      });
-    }
-
-    return teamResponse;
   }
 
   async getMyTeams(): Promise<any> {
-    const user = await this.getCurrentUser();
-    if (!user) return { data: [] };
-
-    return this.request(`/api/teams?filters[created_by_user][id][$eq]=${user.id}&populate=*`);
+    return this.request('/api/teams/my-teams');
   }
 
   async getTeamById(id: string): Promise<any> {

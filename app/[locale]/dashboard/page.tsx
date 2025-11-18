@@ -22,6 +22,11 @@ export default function Dashboard() {
       if (!currentUser) {
         router.push(`/${locale}/auth/login`);
       } else {
+        // Check if profile is completed
+        if (!currentUser.profile_completed) {
+          router.push(`/${locale}/profile/complete`);
+          return;
+        }
         setUser(currentUser);
       }
       setLoading(false);
@@ -180,10 +185,10 @@ export default function Dashboard() {
               <h3 className="font-semibold text-lg mb-2">{t('quickActions.registerCompetition.title')}</h3>
               <p className="text-sm opacity-90">{t('quickActions.registerCompetition.description')}</p>
             </button>
-            <button className="bg-gray-100 text-gray-700 p-4 rounded-lg hover:bg-gray-200 transition text-left">
+            <Link href={`/${locale}/teams/create`} className="bg-gray-100 text-gray-700 p-4 rounded-lg hover:bg-gray-200 transition text-left block">
               <h3 className="font-semibold text-lg mb-2">{t('quickActions.createJoinTeam.title')}</h3>
               <p className="text-sm">{t('quickActions.createJoinTeam.description')}</p>
-            </button>
+            </Link>
             <button className="bg-gray-100 text-gray-700 p-4 rounded-lg hover:bg-gray-200 transition text-left">
               <h3 className="font-semibold text-lg mb-2">{t('quickActions.viewSchedule.title')}</h3>
               <p className="text-sm">{t('quickActions.viewSchedule.description')}</p>
@@ -198,28 +203,62 @@ export default function Dashboard() {
         {/* Profile Section */}
         <div className="mt-8 bg-white rounded-lg shadow-md p-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('profile.title')}</h2>
-          <div className="space-y-4">
+          <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                {t('profile.fullName')}
-              </label>
-              <p className="text-gray-900">
-                {user?.full_name || t('profile.notProvided')}
-              </p>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                {t('profile.email')}
+                Email
               </label>
               <p className="text-gray-900">{user?.email}</p>
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                {t('profile.accountCreated')}
+                Role
+              </label>
+              <p className="text-gray-900 capitalize">
+                {user?.user_role || 'User'}
+              </p>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Full Name (Arabic)
               </label>
               <p className="text-gray-900">
-                {user?.created_at && new Date(user.created_at).toLocaleDateString()}
+                {user?.full_name_arabic || t('profile.notProvided')}
               </p>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Birth Date
+              </label>
+              <p className="text-gray-900">
+                {user?.birth_date ? new Date(user.birth_date).toLocaleDateString() : t('profile.notProvided')}
+              </p>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                T-Shirt Size
+              </label>
+              <p className="text-gray-900">{user?.tshirt_size || t('profile.notProvided')}</p>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Year in University
+              </label>
+              <p className="text-gray-900">
+                {user?.year_in_uni === 'graduated' ? 'Graduated' : `Year ${user?.year_in_uni}` || t('profile.notProvided')}
+              </p>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Faculty
+              </label>
+              <p className="text-gray-900">{user?.faculty || t('profile.notProvided')}</p>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                University ID
+              </label>
+              <p className="text-gray-900">{user?.uni_id || 'Not provided'}</p>
             </div>
           </div>
         </div>
