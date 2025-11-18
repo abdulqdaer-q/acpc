@@ -45,6 +45,13 @@ interface SeedData {
     motivation: string;
     status: string;
   }>;
+  guide: {
+    title: {
+      en: string;
+      ar: string;
+    };
+    content: any;
+  };
 }
 
 function hashPassword(password: string): string {
@@ -101,6 +108,7 @@ async function seedDatabase() {
     if (tableNames.includes('volunteer_applications')) db.exec('DELETE FROM volunteer_applications');
     if (tableNames.includes('up_users_role_lnk')) db.exec('DELETE FROM up_users_role_lnk');
     if (tableNames.includes('up_users')) db.exec('DELETE FROM up_users');
+    if (tableNames.includes('guides')) db.exec('DELETE FROM guides');
     console.log('✅ Existing data cleared\n');
 
     // Seed Users
@@ -303,6 +311,31 @@ async function seedDatabase() {
     }
     console.log(`✅ Seeded ${createdApplicationsCount} volunteer applications\n`);
 
+    // Seed Guide (singleType)
+    console.log('📚 Seeding guide...');
+    const insertGuide = db.prepare(`
+      INSERT INTO guides (
+        title, content,
+        created_at, updated_at, published_at, created_by_id, updated_by_id, locale
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `);
+
+    const guideResult = insertGuide.run(
+      seedData.guide.title.en,
+      JSON.stringify({
+        title: seedData.guide.title,
+        content: seedData.guide.content
+      }),
+      timestamp,
+      timestamp,
+      timestamp,
+      null,
+      null,
+      'en'
+    );
+    console.log(`  ✓ Created guide: ${seedData.guide.title.en} (ID: ${guideResult.lastInsertRowid})`);
+    console.log(`✅ Seeded guide\n`);
+
     db.close();
     console.log('🎉 Database seeding completed successfully!\n');
     console.log('📊 Summary:');
@@ -311,6 +344,7 @@ async function seedDatabase() {
     console.log(`   • Team Members: ${createdMembersCount}`);
     console.log(`   • Contact Messages: ${createdMessagesCount}`);
     console.log(`   • Volunteer Applications: ${createdApplicationsCount}`);
+    console.log(`   • Guide: 1`);
     console.log('\n✅ You can now start Strapi with: npm run develop');
 
   } catch (error) {

@@ -297,6 +297,250 @@
       "status": "rejected"
     }
   ],
+  "guide": {
+    "title": {
+      "en": "Beginner Competitive Programming Guide",
+      "ar": "دليل البرمجة التنافسية للمبتدئين"
+    },
+    "content": {
+      "en": {
+        "introduction": {
+          "heading": "Welcome to Your Competitive Programming Journey",
+          "content": "This guide is designed to help you continue your competitive programming training after completing the camp. Whether you're training for an exam or simply want to improve your skills, this structured approach will guide you from solving basic problems to reaching Expert level and beyond.\n\nThe path to becoming a strong competitive programmer requires consistency, strategic practice, and the right mindset. This guide provides a proven roadmap used by many who have reached Expert, Candidate Master, and Master ranks."
+        },
+        "sections": [
+          {
+            "id": "phase-1",
+            "heading": "Phase 1: Building Your Foundation (Rating 1000–1200)",
+            "content": "The topics you learned in the camp are sufficient to solve problems up to rating 1200. Your goal in this phase is to build strong fundamentals through consistent practice.",
+            "subsections": [
+              {
+                "heading": "The 50-Problem Method",
+                "content": "Follow this structured progression:\n\n1. **Rating 1000**: Solve 50 problems at this level\n2. **Rating 1100**: Solve 50 problems at this level\n3. **Rating 1200**: Solve 50 problems at this level\n\n**Why 50 problems?**\nThis number provides sufficient practice without causing burnout. The goal is quality practice that helps you recognize patterns and build problem-solving intuition. After solving 50 problems at a rating level, you should be able to solve approximately 80% of similar problems within 1-2 hours.",
+                "list": null
+              },
+              {
+                "heading": "Choosing Problems to Solve",
+                "content": "You have two options for selecting practice problems:",
+                "list": [
+                  {
+                    "title": "Option 1: Random Selection from Problemset",
+                    "description": "Visit the Codeforces problemset, filter by your target rating, and solve problems in the order they appear. **Important**: Do not look at the number of accepted solutions (the green checkmark count) when choosing problems."
+                  },
+                  {
+                    "title": "Option 2: Curated Problem Collection",
+                    "description": "Join the specially curated Codeforces group that contains hand-picked, high-quality problems. This group provides well-selected problems and allows you to see others who are solving the same challenges.",
+                    "link": {
+                      "url": "https://codeforces.com/group/wVHZMP1GI8/",
+                      "text": "Access the Curated Problem Group"
+                    }
+                  }
+                ]
+              },
+              {
+                "heading": "When to Read Editorials",
+                "content": "Struggling with problems is a natural part of learning, but knowing when to seek help is crucial:\n\n• **The 3-Hour Rule**: If you've spent 3 or more hours on a problem without making meaningful progress, it's time to read the editorial\n• **Learning from Solutions**: It's normal to need editorial help for approximately 50% of the problems you attempt\n• **Use Official Editorials**: Always prefer reading the official problem editorial rather than random solutions\n\nReading editorials is not failure—it's an essential learning tool. After understanding the solution, implement it yourself to reinforce the concepts.",
+                "list": null
+              },
+              {
+                "heading": "Goal and Success Metrics",
+                "content": "Your objective for this phase is to reach a point where:\n\n• You can solve **80% of problems** at your target rating level\n• You can solve these problems within **1-2 hours**\n• You recognize common patterns and can apply appropriate techniques\n\nThis level of proficiency indicates you're ready to move to the next rating tier.",
+                "list": null
+              }
+            ]
+          },
+          {
+            "id": "phase-2",
+            "heading": "Phase 2: Contest Participation",
+            "content": "Participating in contests is absolutely essential for growth as a competitive programmer. Contests teach you time management, problem-solving under pressure, and expose you to diverse problem types.",
+            "subsections": [
+              {
+                "heading": "Why Every Contest Matters",
+                "content": "You should participate in **every contest** available on Codeforces, including:\n\n• Division 2 contests\n• Division 3 contests\n• Combined Division 1 + Division 2 contests\n• Educational rounds\n\nEach contest is an opportunity to test your skills, learn new techniques, and measure your progress against other programmers.",
+                "list": null
+              },
+              {
+                "heading": "The Right Mindset About Rating",
+                "content": "Your rating will fluctuate—it will go up and down. This is completely normal. Understanding how to respond to rating changes separates successful competitors from those who quit:\n\n**Winners:**\n• Accept that losing rating is a normal part of improvement\n• Continue participating regardless of rating changes\n• Don't feel embarrassed about their performance\n• Take contests seriously from the first second to the last second\n• Remain focused and engaged throughout the entire duration\n\n**Those Who Fall Behind:**\n• Get discouraged by rating drops\n• Stop participating when they perform poorly\n• Give up instead of learning from mistakes",
+                "list": null
+              },
+              {
+                "heading": "How to Approach Contests",
+                "content": "• **Solve as many problems as you can** during the contest\n• **Stay engaged** from the beginning to the end—every second counts\n• **After the contest**, solve the problems you couldn't finish during the competition\n• **Read editorials** for problems you couldn't solve to understand the solutions\n• **Take it seriously**—treat every contest as valuable practice, not just a rating event",
+                "list": null
+              }
+            ]
+          },
+          {
+            "id": "phase-3",
+            "heading": "Phase 3: Advancing Your Skills (Rating 1200+)",
+            "content": "Once you've completed the 1200 rating level, it's time to expand your knowledge and tackle more advanced topics.",
+            "subsections": [
+              {
+                "heading": "Learning Level 2 Topics",
+                "content": "After mastering fundamentals, you need to learn intermediate competitive programming topics:\n\n• **Graph Algorithms**: BFS, DFS, shortest paths, trees, and graph traversal\n• **Dynamic Programming (DP)**: Memoization, tabulation, classical DP problems\n\nThese topics are essential for solving problems rated 1200 and above. Many high-quality resources for learning these topics are available online. If you complete your practice before the next camp begins, use that time to study these topics independently.",
+                "list": null
+              },
+              {
+                "heading": "Continuing the Journey to 1600/1700 and Beyond",
+                "content": "After learning Level 2 topics:\n\n1. Apply the same 50-problem method to ratings **1300, 1400, 1500, 1600, and 1700**\n2. Continue participating in **all contests**\n3. Keep solving problems that challenge you\n4. Learn new topics as needed for higher ratings\n\nThe cycle continues: solve problems, participate in contests, learn new topics, and push to higher ratings. This iterative process is how programmers progress from Newbie to Expert, Candidate Master, and beyond.",
+                "list": null
+              }
+            ]
+          },
+          {
+            "id": "best-practices",
+            "heading": "Ongoing Best Practices",
+            "content": "These practices will help you maintain consistent progress throughout your competitive programming journey.",
+            "subsections": [
+              {
+                "heading": "Revisiting Topic Gyms",
+                "content": "Periodically return to the topic-specific gyms in the Aleppo training group and attempt problems you haven't solved before. These problems often contain important ideas and techniques that become clearer as your skills develop.\n\n**Why revisit?**\n• Problems that seemed impossible before may now be solvable\n• You'll notice patterns and connections you missed earlier\n• Reinforces fundamental techniques",
+                "list": null
+              },
+              {
+                "heading": "Flexibility in Training",
+                "content": "While consistency is key, you don't need to follow this guide rigidly:\n\n• If you want to **focus on a specific topic** for a period of time, that's perfectly fine\n• You can **alternate between random practice** and **topic-focused training**\n• The important rule: **Never completely stop random practice and contest participation**\n• **Always maintain some level of challenge** in your training\n\nFeeling difficulty is a sign you're growing. If everything feels easy, you're not pushing yourself enough.",
+                "list": null
+              },
+              {
+                "heading": "Quality Over Quantity",
+                "content": "**How many problems should I solve per day?**\n\nThe answer is not about the number of problems—it's about **productive hours spent with focus**.\n\n• Focus on **quality of practice**, not quantity\n• Aim for **concentrated, distraction-free problem-solving sessions**\n• **However**: Do not let a day pass without solving at least one problem\n\nConsistency beats intensity. Solving one problem every day with full focus is better than solving ten problems occasionally without deep thought.",
+                "list": null
+              },
+              {
+                "heading": "No Fixed Timeline to Expert",
+                "content": "**How long will it take me to reach Expert?**\n\nThere is no universal answer. The timeline depends on:\n\n• Your consistency with contests\n• The quality and quantity of your practice\n• How well you learn from editorials and mistakes\n• Your commitment to continuous improvement\n\nHowever, if you commit to:\n• Participating in **all contests**\n• Learning necessary **topics** (fundamentals and advanced)\n• Solving **random problems** up to rating 1600\n\nYou **will** reach at least a **reasonable level** of competitive programming skill. Many have followed this exact approach and achieved Expert, Candidate Master, and Master ranks.\n\n**Trust the process.** Consistency and dedication will yield results.",
+                "list": null
+              }
+            ]
+          }
+        ],
+        "conclusion": {
+          "heading": "Your Journey Starts Now",
+          "content": "Competitive programming is a marathon, not a sprint. Success comes from showing up every day, solving problems, learning from mistakes, and never giving up—even when your rating drops.\n\nRemember:\n• Stay consistent with practice and contests\n• Accept that struggle and failure are part of growth\n• Focus on learning, not just rating\n• Trust the process and be patient with yourself\n\nThis approach has been proven by many successful competitive programmers. If they can do it, so can you.\n\n**Good luck, and happy coding!**"
+        }
+      },
+      "ar": {
+        "introduction": {
+          "heading": "مرحباً بك في رحلة البرمجة التنافسية",
+          "content": "هذا الدليل مصمم لمساعدتك على متابعة تدريبك في البرمجة التنافسية بعد إنهاء المعسكر. سواء كنت تتدرب لامتحان أو ترغب ببساطة في تحسين مهاراتك، سيرشدك هذا النهج المنظم من حل المسائل الأساسية إلى الوصول لمستوى Expert وما بعده.\n\nالطريق لتصبح مبرمجاً تنافسياً قوياً يتطلب الاستمرارية، الممارسة الاستراتيجية، والعقلية الصحيحة. يوفر هذا الدليل خارطة طريق مجربة استخدمها الكثيرون ممن وصلوا إلى رتب Expert و Candidate Master و Master."
+        },
+        "sections": [
+          {
+            "id": "phase-1",
+            "heading": "المرحلة الأولى: بناء الأساس (تقييم 1000-1200)",
+            "content": "المواضيع التي تعلمتها في المعسكر كافية لحل مسائل حتى تقييم 1200. هدفك في هذه المرحلة هو بناء أساسيات قوية من خلال الممارسة المستمرة.",
+            "subsections": [
+              {
+                "heading": "طريقة الـ 50 مسألة",
+                "content": "اتبع هذا التدرج المنظم:\n\n1. **تقييم 1000**: حل 50 مسألة من هذا المستوى\n2. **تقييم 1100**: حل 50 مسألة من هذا المستوى\n3. **تقييم 1200**: حل 50 مسألة من هذا المستوى\n\n**لماذا 50 مسألة؟**\nهذا العدد يوفر ممارسة كافية دون التسبب بالملل. الهدف هو ممارسة نوعية تساعدك على التعرف على الأنماط وبناء حدس حل المسائل. بعد حل 50 مسألة من مستوى تقييم معين، يجب أن تكون قادراً على حل حوالي 80% من المسائل المشابهة خلال 1-2 ساعة.",
+                "list": null
+              },
+              {
+                "heading": "اختيار المسائل للحل",
+                "content": "لديك خياران لاختيار مسائل التدريب:",
+                "list": [
+                  {
+                    "title": "الخيار 1: اختيار عشوائي من مجموعة المسائل",
+                    "description": "ادخل إلى مجموعة مسائل Codeforces، صفّي حسب التقييم المستهدف، واحل المسائل بالترتيب الذي تظهر به. **مهم**: لا تنظر إلى عدد الحلول المقبولة (عدد العلامات الخضراء) عند اختيار المسائل."
+                  },
+                  {
+                    "title": "الخيار 2: مجموعة المسائل المنقاة",
+                    "description": "انضم إلى مجموعة Codeforces المنقاة خصيصاً والتي تحتوي على مسائل مختارة بعناية وعالية الجودة. توفر هذه المجموعة مسائل مختارة جيداً وتتيح لك رؤية الآخرين الذين يحلون نفس التحديات.",
+                    "link": {
+                      "url": "https://codeforces.com/group/wVHZMP1GI8/",
+                      "text": "الوصول إلى مجموعة المسائل المنقاة"
+                    }
+                  }
+                ]
+              },
+              {
+                "heading": "متى تقرأ الحلول الرسمية (Editorials)",
+                "content": "المعاناة مع المسائل جزء طبيعي من التعلم، لكن معرفة متى تطلب المساعدة أمر حاسم:\n\n• **قاعدة الثلاث ساعات**: إذا قضيت 3 ساعات أو أكثر على مسألة دون إحراز تقدم ملموس، حان وقت قراءة الحل الرسمي\n• **التعلم من الحلول**: من الطبيعي أن تحتاج مساعدة الحلول الرسمية لحوالي 50% من المسائل التي تحاولها\n• **استخدم الحلول الرسمية**: فضّل دائماً قراءة الحل الرسمي للمسألة بدلاً من حلول عشوائية\n\nقراءة الحلول ليست فشلاً—إنها أداة تعلم أساسية. بعد فهم الحل، نفذه بنفسك لتعزيز المفاهيم.",
+                "list": null
+              },
+              {
+                "heading": "الهدف ومقاييس النجاح",
+                "content": "هدفك في هذه المرحلة هو الوصول إلى نقطة حيث:\n\n• يمكنك حل **80% من المسائل** في مستوى التقييم المستهدف\n• يمكنك حل هذه المسائل خلال **1-2 ساعة**\n• تتعرف على الأنماط الشائعة ويمكنك تطبيق التقنيات المناسبة\n\nهذا المستوى من الكفاءة يشير إلى أنك مستعد للانتقال إلى مستوى التقييم التالي.",
+                "list": null
+              }
+            ]
+          },
+          {
+            "id": "phase-2",
+            "heading": "المرحلة الثانية: المشاركة في المسابقات",
+            "content": "المشاركة في المسابقات أمر أساسي تماماً للنمو كمبرمج تنافسي. المسابقات تعلمك إدارة الوقت، حل المسائل تحت الضغط، وتعرضك لأنواع متنوعة من المسائل.",
+            "subsections": [
+              {
+                "heading": "لماذا كل مسابقة مهمة",
+                "content": "يجب أن تشارك في **كل مسابقة** متاحة على Codeforces، بما في ذلك:\n\n• مسابقات Division 2\n• مسابقات Division 3\n• المسابقات المشتركة Division 1 + Division 2\n• الجولات التعليمية\n\nكل مسابقة هي فرصة لاختبار مهاراتك، تعلم تقنيات جديدة، وقياس تقدمك مقارنة بمبرمجين آخرين.",
+                "list": null
+              },
+              {
+                "heading": "العقلية الصحيحة تجاه التقييم",
+                "content": "تقييمك سيتذبذب—سيرتفع وينخفض. هذا طبيعي تماماً. فهم كيفية الاستجابة لتغييرات التقييم يفصل بين المتسابقين الناجحين وأولئك الذين يستسلمون:\n\n**الفائزون:**\n• يقبلون أن خسارة التقييم جزء طبيعي من التحسن\n• يستمرون بالمشاركة بغض النظر عن تغييرات التقييم\n• لا يشعرون بالإحراج من أدائهم\n• يأخذون المسابقات بجدية من الثانية الأولى إلى الأخيرة\n• يبقون مركزين ومنخرطين طوال المدة الكاملة\n\n**أولئك الذين يتخلفون:**\n• يشعرون بالإحباط من انخفاض التقييم\n• يتوقفون عن المشاركة عندما يؤدون بشكل سيء\n• يستسلمون بدلاً من التعلم من الأخطاء",
+                "list": null
+              },
+              {
+                "heading": "كيفية التعامل مع المسابقات",
+                "content": "• **حل أكبر عدد ممكن من المسائل** خلال المسابقة\n• **ابقَ منخرطاً** من البداية إلى النهاية—كل ثانية مهمة\n• **بعد المسابقة**، حل المسائل التي لم تتمكن من إنهائها خلال المسابقة\n• **اقرأ الحلول الرسمية** للمسائل التي لم تتمكن من حلها لفهم الحلول\n• **خذها بجدية**—تعامل مع كل مسابقة كممارسة قيّمة، ليس فقط كحدث تقييم",
+                "list": null
+              }
+            ]
+          },
+          {
+            "id": "phase-3",
+            "heading": "المرحلة الثالثة: تطوير المهارات (تقييم 1200+)",
+            "content": "بمجرد إنهائك لمستوى تقييم 1200، حان وقت توسيع معرفتك ومواجهة مواضيع أكثر تقدماً.",
+            "subsections": [
+              {
+                "heading": "تعلم مواضيع المستوى الثاني",
+                "content": "بعد إتقان الأساسيات، تحتاج لتعلم مواضيع البرمجة التنافسية المتوسطة:\n\n• **خوارزميات الرسومات البيانية (Graphs)**: BFS، DFS، أقصر المسارات، الأشجار، واجتياز الرسومات\n• **البرمجة الديناميكية (DP)**: التذكير، الجدولة، مسائل DP الكلاسيكية\n\nهذه المواضيع أساسية لحل مسائل بتقييم 1200 وما فوق. العديد من الموارد عالية الجودة لتعلم هذه المواضيع متاحة على الإنترنت. إذا أنهيت تدريبك قبل بدء المعسكر التالي، استخدم ذلك الوقت لدراسة هذه المواضيع بشكل مستقل.",
+                "list": null
+              },
+              {
+                "heading": "متابعة الرحلة إلى 1600/1700 وما بعد",
+                "content": "بعد تعلم مواضيع المستوى الثاني:\n\n1. طبّق نفس طريقة الـ 50 مسألة على تقييمات **1300، 1400، 1500، 1600، و 1700**\n2. استمر بالمشاركة في **جميع المسابقات**\n3. استمر بحل مسائل تتحداك\n4. تعلم مواضيع جديدة حسب الحاجة للتقييمات الأعلى\n\nالدورة تستمر: حل مسائل، شارك في مسابقات، تعلم مواضيع جديدة، وادفع نحو تقييمات أعلى. هذه العملية التكرارية هي كيف يتقدم المبرمجون من Newbie إلى Expert و Candidate Master وما بعد.",
+                "list": null
+              }
+            ]
+          },
+          {
+            "id": "best-practices",
+            "heading": "أفضل الممارسات المستمرة",
+            "content": "هذه الممارسات ستساعدك على الحفاظ على تقدم مستمر طوال رحلة البرمجة التنافسية.",
+            "subsections": [
+              {
+                "heading": "إعادة زيارة صالات المواضيع (Topic Gyms)",
+                "content": "عد بشكل دوري إلى صالات المواضيع المحددة في مجموعة تدريب حلب وحاول حل المسائل التي لم تحلها من قبل. هذه المسائل غالباً تحتوي أفكاراً وتقنيات مهمة تصبح أوضح مع تطور مهاراتك.\n\n**لماذا تعيد الزيارة؟**\n• المسائل التي بدت مستحيلة من قبل قد تصبح قابلة للحل الآن\n• ستلاحظ أنماطاً وروابط فاتتك سابقاً\n• تعزز التقنيات الأساسية",
+                "list": null
+              },
+              {
+                "heading": "المرونة في التدريب",
+                "content": "بينما الاستمرارية مفتاح، لا تحتاج لاتباع هذا الدليل بشكل صارم:\n\n• إذا أردت **التركيز على موضوع محدد** لفترة من الوقت، هذا جيد تماماً\n• يمكنك **التناوب بين الممارسة العشوائية** و **التدريب المركز على المواضيع**\n• القاعدة المهمة: **لا توقف أبداً الممارسة العشوائية والمشاركة في المسابقات بشكل كامل**\n• **حافظ دائماً على مستوى من التحدي** في تدريبك\n\nالشعور بالصعوبة علامة على أنك تنمو. إذا كان كل شيء يبدو سهلاً، فأنت لا تدفع نفسك بما يكفي.",
+                "list": null
+              },
+              {
+                "heading": "الجودة على الكمية",
+                "content": "**كم مسألة يجب أن أحل يومياً؟**\n\nالجواب ليس عن عدد المسائل—بل عن **ساعات منتجة مع تركيز**.\n\n• ركز على **جودة الممارسة**، ليس الكمية\n• استهدف **جلسات حل مسائل مركزة خالية من المشتتات**\n• **لكن**: لا تدع يوماً يمر دون حل مسألة واحدة على الأقل\n\nالاستمرارية تتفوق على الشدة. حل مسألة واحدة كل يوم بتركيز كامل أفضل من حل عشر مسائل بشكل متقطع دون تفكير عميق.",
+                "list": null
+              },
+              {
+                "heading": "لا يوجد جدول زمني محدد للوصول إلى Expert",
+                "content": "**كم من الوقت سيستغرقني للوصول إلى Expert؟**\n\nليس هناك إجابة عامة. الجدول الزمني يعتمد على:\n\n• استمراريتك مع المسابقات\n• جودة وكمية تدريبك\n• مدى تعلمك من الحلول الرسمية والأخطاء\n• التزامك بالتحسن المستمر\n\nلكن، إذا التزمت بـ:\n• المشاركة في **جميع المسابقات**\n• تعلم **المواضيع** الضرورية (أساسية ومتقدمة)\n• حل **مسائل عشوائية** حتى تقييم 1600\n\nأنت **ستصل** على الأقل إلى **مستوى معقول** من مهارة البرمجة التنافسية. الكثيرون اتبعوا هذا النهج بالضبط وحققوا رتب Expert و Candidate Master و Master.\n\n**ثق بالعملية.** الاستمرارية والتفاني سينتجان نتائج.",
+                "list": null
+              }
+            ]
+          }
+        ],
+        "conclusion": {
+          "heading": "رحلتك تبدأ الآن",
+          "content": "البرمجة التنافسية ماراثون، وليست سباق سرعة. النجاح يأتي من الحضور كل يوم، حل المسائل، التعلم من الأخطاء، وعدم الاستسلام أبداً—حتى عندما ينخفض تقييمك.\n\nتذكر:\n• ابقَ مستمراً بالممارسة والمسابقات\n• اقبل أن الصراع والفشل جزء من النمو\n• ركز على التعلم، وليس فقط التقييم\n• ثق بالعملية وكن صبوراً مع نفسك\n\nهذا النهج أثبت نجاحه من قبل العديد من المبرمجين التنافسيين الناجحين. إذا استطاعوا فعلها، أنت أيضاً تستطيع.\n\n**حظاً موفقاً، وبرمجة سعيدة!**"
+        }
+      }
+    }
+  },
   "contests": [
     {
       "name": "Syrian Collegiate Programming Contest 2025",
