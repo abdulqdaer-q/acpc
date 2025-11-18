@@ -46,7 +46,10 @@ interface SeedData {
     status: string;
   }>;
   guide: {
-    title: string;
+    title: {
+      en: string;
+      ar: string;
+    };
     content: any;
   };
 }
@@ -318,8 +321,11 @@ async function seedDatabase() {
     `);
 
     const guideResult = insertGuide.run(
-      seedData.guide.title,
-      JSON.stringify(seedData.guide.content),
+      seedData.guide.title.en,
+      JSON.stringify({
+        title: seedData.guide.title,
+        content: seedData.guide.content
+      }),
       timestamp,
       timestamp,
       timestamp,
@@ -327,7 +333,7 @@ async function seedDatabase() {
       null,
       'en'
     );
-    console.log(`  ✓ Created guide: ${seedData.guide.title} (ID: ${guideResult.lastInsertRowid})`);
+    console.log(`  ✓ Created guide: ${seedData.guide.title.en} (ID: ${guideResult.lastInsertRowid})`);
     console.log(`✅ Seeded guide\n`);
 
     db.close();

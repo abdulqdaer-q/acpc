@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useLocale } from 'next-intl';
 
 interface GuideContent {
   title: string;
@@ -34,6 +35,7 @@ interface GuideContent {
 
 export default function GuidePage() {
   const router = useRouter();
+  const locale = useLocale();
   const [guide, setGuide] = useState<GuideContent | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -50,10 +52,17 @@ export default function GuidePage() {
 
         const data = await response.json();
 
-        if (data.data) {
+        if (data.data && data.data.content) {
+          const contentData = data.data.content;
+          const currentLocale = locale === 'ar' ? 'ar' : 'en';
+
+          // Get the content for the current locale, fallback to English
+          const localizedContent = contentData.content[currentLocale] || contentData.content.en;
+          const localizedTitle = contentData.title[currentLocale] || contentData.title.en;
+
           setGuide({
-            title: data.data.title,
-            ...data.data.content
+            title: localizedTitle,
+            ...localizedContent
           });
         }
       } catch (err: any) {
@@ -64,7 +73,7 @@ export default function GuidePage() {
     };
 
     fetchGuide();
-  }, []);
+  }, [locale]);
 
   if (loading) {
     return (
@@ -92,7 +101,7 @@ export default function GuidePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
