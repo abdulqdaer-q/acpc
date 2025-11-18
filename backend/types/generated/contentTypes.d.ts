@@ -465,6 +465,153 @@ export interface ApiContactMessageContactMessage
   };
 }
 
+export interface ApiContestRegistrationContestRegistration
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'contest_registrations';
+  info: {
+    description: 'Team registrations for contests';
+    displayName: 'Contest Registration';
+    pluralName: 'contest-registrations';
+    singularName: 'contest-registration';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    contest: Schema.Attribute.Relation<'manyToOne', 'api::contest.contest'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contest-registration.contest-registration'
+    > &
+      Schema.Attribute.Private;
+    notes: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    registration_date: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    status: Schema.Attribute.Enumeration<
+      ['pending', 'approved', 'rejected', 'withdrawn']
+    > &
+      Schema.Attribute.DefaultTo<'pending'>;
+    team: Schema.Attribute.Relation<'manyToOne', 'api::team.team'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiContestContest extends Struct.CollectionTypeSchema {
+  collectionName: 'contests';
+  info: {
+    description: 'Programming contests';
+    displayName: 'Contest';
+    pluralName: 'contests';
+    singularName: 'contest';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    contest_registrations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contest-registration.contest-registration'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    end_date: Schema.Attribute.Date & Schema.Attribute.Required;
+    is_active: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contest.contest'
+    > &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.String;
+    max_teams: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    registration_end: Schema.Attribute.DateTime;
+    registration_start: Schema.Attribute.DateTime;
+    schedule_events: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::schedule-event.schedule-event'
+    >;
+    start_date: Schema.Attribute.Date & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiScheduleEventScheduleEvent
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'schedule_events';
+  info: {
+    description: 'Events in contest schedule';
+    displayName: 'Schedule Event';
+    pluralName: 'schedule-events';
+    singularName: 'schedule-event';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    contest: Schema.Attribute.Relation<'manyToOne', 'api::contest.contest'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    day: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 4;
+          min: 1;
+        },
+        number
+      >;
+    description: Schema.Attribute.Text;
+    end_time: Schema.Attribute.DateTime;
+    event_type: Schema.Attribute.Enumeration<
+      [
+        'registration',
+        'opening',
+        'contest',
+        'break',
+        'lunch',
+        'closing',
+        'awards',
+        'other',
+      ]
+    > &
+      Schema.Attribute.DefaultTo<'other'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::schedule-event.schedule-event'
+    > &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    start_time: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTeamMemberTeamMember extends Struct.CollectionTypeSchema {
   collectionName: 'team_members';
   info: {
@@ -537,6 +684,10 @@ export interface ApiTeamTeam extends Struct.CollectionTypeSchema {
     coach_email: Schema.Attribute.Email;
     coach_name: Schema.Attribute.String;
     coach_phone: Schema.Attribute.String;
+    contest_registrations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contest-registration.contest-registration'
+    >;
     created_by_user: Schema.Attribute.Relation<
       'manyToOne',
       'plugin::users-permissions.user'
@@ -1135,6 +1286,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::contact-message.contact-message': ApiContactMessageContactMessage;
+      'api::contest-registration.contest-registration': ApiContestRegistrationContestRegistration;
+      'api::contest.contest': ApiContestContest;
+      'api::schedule-event.schedule-event': ApiScheduleEventScheduleEvent;
       'api::team-member.team-member': ApiTeamMemberTeamMember;
       'api::team.team': ApiTeamTeam;
       'api::volunteer-application.volunteer-application': ApiVolunteerApplicationVolunteerApplication;
