@@ -2,14 +2,11 @@ import path from 'path';
 
 export default ({ env }) => ({
   connection: {
-    client: 'better-sqlite3',
+    client: 'sqlite',
     connection: {
-      filename: path.join(
-        __dirname,
-        '..',
-        env('DATABASE_FILENAME', '.tmp/data.db')
-      ),
+      filename: env('DATABASE_FILENAME', path.join(process.cwd(), '.tmp', 'data.db')),
     },
     useNullAsDefault: true,
+    debug: false,
   },
 });
